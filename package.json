@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "coalitiemaker.nl",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -13,6 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync ./build s3://coalitiemaker.nl --acl public-read",
+    "release": "yarn run build && yarn run deploy"
   }
 }
