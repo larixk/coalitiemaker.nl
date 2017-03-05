@@ -1,0 +1,193 @@
+.App {
+  padding: 2em;
+}
+
+h1 {
+  padding: 1em;
+}
+
+.parties,
+.seats {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.seats {
+  border: 1px solid #eee;
+  padding-bottom: 1em;
+}
+
+.seats-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 50%;
+  padding: 2em 2em;
+}
+
+.seats-group + .seats-group {
+  justify-content: flex-start;
+}
+
+.seat {
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  animation: plop .2s;
+  animation-fill-mode: backwards;
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.seat-color {
+  display: block;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+  top: 50%;
+  left: 50%;
+  border-radius: 10%;
+}
+
+.seat.hovered .seat-color {
+  transform: scale(0.7);
+}
+
+.seat:focus {
+  outline: none;
+}
+
+.seat:disabled {
+  cursor: default;
+  animation: none;
+}
+
+.party-group {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 2em;
+  margin: -2em 1em 2em;
+  background: #fff;
+}
+
+.party-group-empty {
+  opacity: 0.2;
+}
+
+.party {
+  display: block;
+  line-height: 2em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: .25em 0;
+}
+
+.party.hovered,
+.party:hover {
+  cursor: pointer;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  box-shadow: 0 10px 10px #fafafa;
+}
+
+.party-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  margin: -2px 10px 0;
+  border-radius: 10%;
+  position: relative;
+}
+
+.party.hovered .party-color:after,
+.party:hover .party-color:after {
+  content: "+";
+  display: block;
+  width: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 15.5px;
+  text-indent: 2px;
+}
+
+.party-group-active .party.hovered .party-color:after,
+.party-group-active .party:hover .party-color:after {
+  content: "×";
+}
+
+.party-seats {
+  opacity: 0.5;
+  font-size: .8em;
+  margin: 0 10px;
+}
+
+.party-total {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  padding-top: .5em;
+  margin-top: .5em;
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+  color: #666;
+}
+
+@keyframes plop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  h1 {
+    text-align: center;
+  }
+  .App {
+    padding: 0;
+  }
+  .seats {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    flex-direction: column;
+  }
+  .seats-group {
+    width: auto;
+    padding: .5em;
+    justify-content: center;
+  }
+  .seats-group + .seats-group {
+    justify-content: center;
+  }
+  .parties {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .party-group {
+    width: auto;
+    margin: 0;
+    padding: 20px 0;
+    border: none;
+    box-shadow: none;
+  }
+}

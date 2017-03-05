@@ -1,0 +1,28 @@
+.Footer {
+  text-align: right;
+  padding: 4em;
+}
+
+.Footer a {
+  color: #ccc;
+}
+.Footer a:hover {
+  color: #000;
+}
+
+.Footer .separator {
+  margin: 0 2em;
+}
+
+
+@media (max-width: 700px) {
+  .Footer {
+    text-align: center;
+    padding: 15px;
+  }
+  .Footer .separator {
+    display: block;
+    transform: rotate(90deg);
+    margin: 20px 0;
+  }
+}
