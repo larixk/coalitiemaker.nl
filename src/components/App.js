@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Seat from "./Seat";
 import Party from "./Party";
 import Totals from "./Totals";
+import Finder from "./Finder";
 import "./App.css";
 
 import parties from "../parties";
@@ -146,6 +147,15 @@ class App extends Component {
                 </span>}
           </div>
         </div>
+        <Finder
+          onClick={parties => {
+            this.setState({
+              active: parties
+            });
+            window.scrollTo(0,0);
+          }}
+          parties={parties}
+        />
         <Footer />
       </div>
     );

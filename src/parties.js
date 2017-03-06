@@ -3,7 +3,7 @@ export default [
     name: "PVV",
     seats: 25,
     eerste: 9,
-    color: "#2e89b5"
+    color: "#2e89b5",
   },
   {
     name: "VVD",
@@ -63,7 +63,8 @@ export default [
     name: "Overig",
     seats: 5,
     eerste: 1,
-    color: "#808080"
+    color: "#808080",
+    invalid: true
   },
   {
     name: "SGP",

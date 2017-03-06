@@ -1,0 +1,27 @@
+.Finder .coalition td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Finder .coalition {
+  opacity: 0.7;
+
+}
+.Finder .coalition:hover {
+  opacity: 1;
+  box-shadow: 0 10px 10px #fafafa;
+}
+
+.Finder .party {
+  display: inline-block;
+  width: auto;
+  min-width: 0;
+}
+
+.Finder .party:hover {
+  border-color: transparent;
+}
+.Finder .party:hover .party-color:after {
+  display: none;
+}
