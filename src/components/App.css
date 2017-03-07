@@ -20,7 +20,7 @@ h1 {
 .seats {
   display: flex;
   align-items: flex-start;
-  max-width: 1024px;
+  max-width: 660px;
   margin: 0 auto;
 }
 
