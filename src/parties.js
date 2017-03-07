@@ -1,15 +1,15 @@
 export default [
   {
-    name: "PVV",
-    seats: 25,
-    eerste: 9,
-    color: "#2e89b5",
-  },
-  {
     name: "VVD",
-    seats: 24,
+    seats: 25,
     eerste: 13,
     color: "#ff7600"
+  },
+  {
+    name: "PVV",
+    seats: 23,
+    eerste: 9,
+    color: "#2e89b5",
   },
   {
     name: "CDA",
@@ -19,7 +19,7 @@ export default [
   },
   {
     name: "GroenLinks",
-    seats: 17,
+    seats: 18,
     eerste: 4,
     color: "#82bb00"
   },
@@ -31,13 +31,13 @@ export default [
   },
   {
     name: "SP",
-    seats: 13,
+    seats: 14,
     eerste: 9,
     color: "#fe2b24"
   },
   {
     name: "PvdA",
-    seats: 10,
+    seats: 9,
     eerste: 8,
     color: "#e2001a"
   },
