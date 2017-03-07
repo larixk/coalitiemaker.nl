@@ -136,23 +136,6 @@ img {
   position: relative;
 }
 
-.party:hover .party-color:after {
-  content: "+";
-  display: block;
-  width: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #fff;
-  text-align: center;
-  line-height: 10px;
-  text-indent: 1.5px;
-}
-
-.party-group-active .party:hover .party-color:after {
-  content: "×";
-}
-
 .party-seats {
   opacity: 0.5;
   font-size: 0.8em;
