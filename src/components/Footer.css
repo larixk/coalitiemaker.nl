@@ -1,6 +1,6 @@
 .Footer {
   text-align: right;
-  padding: 4em;
+  padding: 6em 4em 2em;
 }
 
 .Footer a {
@@ -18,7 +18,7 @@
 @media (max-width: 700px) {
   .Footer {
     text-align: center;
-    padding: 15px;
+    padding: 4em 15px 15px;
   }
   .Footer .separator {
     display: block;

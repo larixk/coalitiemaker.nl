@@ -12,14 +12,12 @@ const cantBeSmaller = coalition =>
 const hasMajorityWith = (category, majority, coalition) =>
   coalition[category] >= majority;
 
-const hasMajorities = coalition =>
-  hasMajorityWith("seats", 75, coalition) &&
-  hasMajorityWith("eerste", 38, coalition);
-
 const isValidCoalition = coalition =>
-  hasMajorities(coalition) &&
+  doesNotContainInvalidParties(coalition) &&
+  hasMajorityWith("seats", 75, coalition) &&
+  hasMajorityWith("eerste", 38, coalition) &&
   cantBeSmaller(coalition) &&
-  doesNotContainInvalidParties(coalition);
+  true;
 
 // const compare = (a, b) =>
 //   a.parties.length * 1000 + a.seats - (b.parties.length * 1000 + b.seats);
