@@ -3,7 +3,17 @@
 }
 
 h1 {
-  padding: 200px 20px 100px;
+  padding: 100px 0px 0px;
+  font-size: 2em;
+}
+
+.Header {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  letter-spacing: 0em;
+  padding: 0px 1em;
 }
 
 .parties,
@@ -96,11 +106,12 @@ h1 {
 
 .party {
   display: block;
-  line-height: 2em;
+  line-height: 1em;
   border: 1px solid transparent;
   white-space: nowrap;
   padding: .25em 0;
   min-width: 182px;
+  font-size: 1.25em;
 }
 
 .party.hovered,
@@ -140,7 +151,7 @@ h1 {
 
 .party-seats {
   opacity: 0.5;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 0 10px;
 }
 

@@ -83,7 +83,10 @@ class App extends Component {
     const activeSum = active.reduce((seats, party) => seats + party.seats, 0);
     return (
       <div className="App">
+        <div className="Header">
         <h1>coalitiemaker</h1>
+        <p>Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede Kamer inzichtelijk. Op dit moment op basis van de peilingen. Vanaf 16 maart op basis van de daadwerkelijke verkiezingsresultaten.</p>
+        </div>
         <div className="seats">
           <div className="seats-group">
             {this.renderSeats({ parties: inactiveParties })}
