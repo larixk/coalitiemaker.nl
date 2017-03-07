@@ -84,7 +84,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Header">
-        <h1>coalitiemaker</h1>
+        <img src="logo.jpg"></img>
         <p>Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede Kamer inzichtelijk. Op dit moment op basis van de peilingen. Vanaf 16 maart op basis van de daadwerkelijke verkiezingsresultaten.</p>
         </div>
         <div className="seats">

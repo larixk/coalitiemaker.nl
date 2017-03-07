@@ -16,6 +16,10 @@ h1 {
   padding: 0px 1em;
 }
 
+img {
+  max-width: 350px;
+}
+
 .parties,
 .seats {
   display: flex;
