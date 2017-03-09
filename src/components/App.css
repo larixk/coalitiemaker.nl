@@ -17,8 +17,11 @@ h1 {
   padding: 0px 1em;
 }
 
-img {
-  max-width: 350px;
+svg {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 40px;
 }
 
 .parties,
@@ -155,6 +158,10 @@ img {
   color: #000;
 }
 
+.party-total div {
+  padding: 10px 0;
+}
+
 .party-total-ratio {
   font-weight: normal;
   font-size: 0.8em;
@@ -198,15 +205,35 @@ img {
   .seats-group + .seats-group {
     justify-content: center;
   }
+  .seats-group-inactive {
+    display: none;
+  }
   .parties {
     flex-direction: column-reverse;
     align-items: center;
   }
   .party-group {
-    width: auto;
+    width: calc(100% - 20px);
     margin: 0;
     padding: 20px 0;
     border: none;
     box-shadow: none;
+  }
+  .party-group-inactive {
+    border-top: 1px solid #eee;
+  }
+  .party-total {
+    width: calc(100vw - 20px);
+    padding-top: 20px;
+    font-size: 1.2em;
+    border-top: none;
+  }
+  .party-total div {
+    display: inline-block;
+    padding: 10px;
+  }
+  .party-group-list {
+    width: 50%;
+    margin: 0 auto;
   }
 }
