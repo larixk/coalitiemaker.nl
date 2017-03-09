@@ -12,18 +12,28 @@ import times from "../util/times";
 class App extends Component {
   constructor() {
     super();
+    const hashParties = window.location.hash
+      ? window.location.hash.substr(1).split("+")
+      : [];
     this.state = {
-      active: []
+      active: parties.filter(party => hashParties.includes(party.name))
     };
   }
 
   toggleParty(party) {
-    this.setState({
-      hovered: null,
-      active: this.state.active.includes(party)
-        ? this.state.active.filter(activeParty => activeParty !== party)
-        : this.state.active.concat([party])
-    });
+    this.setState(
+      {
+        hovered: null,
+        active: this.state.active.includes(party)
+          ? this.state.active.filter(activeParty => activeParty !== party)
+          : this.state.active.concat([party])
+      },
+      () => {
+        window.location.hash = this.state.active
+          .map(party => party.name)
+          .join("+");
+      }
+    );
   }
 
   renderPartyList({ parties, isActive }) {
@@ -84,8 +94,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Header">
-        <img alt="Coalitiemaker" src="logo.jpg"></img>
-        <p>Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede Kamer inzichtelijk. Op dit moment op basis van de peilingen. Vanaf 16 maart op basis van de daadwerkelijke verkiezingsresultaten.</p>
+          <img alt="Coalitiemaker" src="logo.jpg" />
+          <p>
+            Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede Kamer inzichtelijk. Op dit moment op basis van de peilingen. Vanaf 16 maart op basis van de daadwerkelijke verkiezingsresultaten.
+          </p>
         </div>
         <div className="seats">
           <div className="seats-group">
@@ -152,10 +164,17 @@ class App extends Component {
         </div>
         <Finder
           onClick={parties => {
-            this.setState({
-              active: parties
-            });
-            window.scrollTo(0,0);
+            this.setState(
+              {
+                active: parties
+              },
+              () => {
+                window.location.hash = this.state.active
+                  .map(party => party.name)
+                  .join("+");
+              }
+            );
+            window.scrollTo(0, 0);
           }}
           parties={parties}
         />

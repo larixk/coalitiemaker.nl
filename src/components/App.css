@@ -1,5 +1,6 @@
 .App {
   padding: 2em;
+  color: #000;
 }
 
 h1 {
@@ -8,7 +9,7 @@ h1 {
 }
 
 .Header {
-  max-width: 700px;
+  max-width: 660px;
   margin: 20px auto;
   font-size: 1.25em;
   line-height: 1.5em;

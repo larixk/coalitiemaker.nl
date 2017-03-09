@@ -1,16 +1,18 @@
 .Footer {
-  text-align: right;
+  text-align: center;
   padding: 6em 4em 2em;
+    color: #ccc;
 }
 
 .Footer a {
-  color: #ccc;
+  color: #222;
 }
 .Footer a:hover {
-  color: #000;
+  color: #ccc;
 }
 
 .Footer .separator {
+  opacity: 0;
   margin: 0 2em;
 }
 
