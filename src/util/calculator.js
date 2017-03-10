@@ -6,7 +6,7 @@ const doesNotContainInvalidParties = coalition =>
   coalition.parties.every(party => !party.invalid);
 
 const cantBeSmaller = coalition =>
-  coalition.parties.every(party => coalition.seats - party.seats < 75) &&
+  coalition.parties.every(party => coalition.seats - party.seats < 75) ||
   coalition.parties.every(party => coalition.eerste - party.eerste < 38);
 
 const hasMajorityWith = (category, majority, coalition) =>
