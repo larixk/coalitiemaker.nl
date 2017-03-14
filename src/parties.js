@@ -13,25 +13,25 @@ export default [
   },
   {
     name: "CDA",
-    seats: 21,
+    seats: 22,
     eerste: 12,
     color: "#6ab651"
   },
   {
     name: "GroenLinks",
-    seats: 19,
+    seats: 18,
     eerste: 4,
     color: "#82bb00"
   },
   {
     name: "D66",
-    seats: 16,
+    seats: 15,
     eerste: 10,
     color: "#a7e5c0"
   },
   {
     name: "SP",
-    seats: 14,
+    seats: 13,
     eerste: 9,
     color: "#fe2b24"
   },
@@ -66,10 +66,15 @@ export default [
     color: "#f37022"
   },
   {
-    name: "Overig",
-    seats: 4,
-    eerste: 1,
-    color: "#808080",
-    invalid: true
+    name: "DENK",
+    seats: 3,
+    eerste: 0,
+    color: "#39afb6"
+  },
+  {
+    name: "FvD",
+    seats: 3,
+    eerste: 0,
+    color: "#651817"
   },
 ];

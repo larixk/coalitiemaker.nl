@@ -1,45 +1,55 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Party from "./Party";
-import Totals from "./Totals";
+import Party from './Party';
+import Totals from './Totals';
 
-import calculator from "../util/calculator";
+import calculator from '../util/calculator';
 
-import "./Finder.css";
+import './Finder.css';
 
 class Finder extends Component {
   constructor() {
     super();
     this.state = {
-      expanded: false
+      expanded: false,
     };
   }
   render() {
     const coalitions = this.state.expanded
       ? calculator(this.props.parties).filter(
-          coalition => coalition.parties.length <= this.state.expanded
+          coalition => coalition.parties.length <= this.state.expanded,
         )
       : [];
+    console.log(coalitions.map(c => c.hash));
+    console.log(coalitions);
+    let previousCoalitionSize = null;
     return (
       <div className="Finder">
         <ul>
-          {coalitions.map(coalition => (
-            <li
-              onClick={() => this.props.onClick(coalition.parties)}
-              key={coalition.hash}
-              className="coalition"
-            >
-              <div className="coalition-parties">
-                {coalition.parties.map(party => (
-                  <Party key={party.name} party={party} />
-                ))}
-              </div>
-              <Totals
-                eersteKamerCount={coalition.eerste}
-                tweedeKamerCount={coalition.seats}
-              />
-            </li>
-          ))}
+          {coalitions.map(coalition => {
+            let className = 'coalition';
+            if (coalition.parties.length !== previousCoalitionSize) {
+              previousCoalitionSize = coalition.parties.length;
+              className += ' coalition-first-of-group';
+            }
+            return (
+              <li
+                onClick={() => this.props.onClick(coalition.parties)}
+                key={coalition.hash}
+                className={className}
+              >
+                <div className="coalition-parties">
+                  {coalition.parties.map(party => (
+                    <Party key={party.name} party={party} />
+                  ))}
+                </div>
+                <Totals
+                  eersteKamerCount={coalition.eerste}
+                  tweedeKamerCount={coalition.seats}
+                />
+              </li>
+            );
+          })}
         </ul>
         <div>
           {this.state.expanded

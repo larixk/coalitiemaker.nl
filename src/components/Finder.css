@@ -34,6 +34,10 @@
   width: 100%;
 }
 
+.Finder .coalition-first-of-group {
+  margin-top: 80px;
+}
+
 .Finder .party {
   display: inline-block;
   width: auto;

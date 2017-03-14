@@ -28,7 +28,7 @@ const compare = (a, b) =>
   (a.eerste + 1000 * (a.seats / a.parties.length));
 
 export default parties => times(Math.pow(2, parties.length), i => ({
-  hash: i.toString(2),
+  hash: leftPad(i.toString(2), parties.length, 0),
   parties: leftPad(i.toString(2), parties.length, 0)
     .split("")
     .map((b, j) => b === "0" ? null : parties[j])
