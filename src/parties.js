@@ -1,37 +1,37 @@
 export default [
   {
     name: "VVD",
-    seats: 27,
+    seats: 31,
     eerste: 13,
     color: "#ff7600"
   },
   {
-    name: "PVV",
-    seats: 24,
-    eerste: 9,
-    color: "#2e89b5",
-  },
-  {
     name: "CDA",
-    seats: 22,
+    seats: 19,
     eerste: 12,
     color: "#6ab651"
   },
   {
-    name: "GroenLinks",
-    seats: 18,
-    eerste: 4,
-    color: "#82bb00"
-  },
-  {
     name: "D66",
-    seats: 15,
+    seats: 19,
     eerste: 10,
     color: "#a7e5c0"
   },
   {
+    name: "PVV",
+    seats: 19,
+    eerste: 9,
+    color: "#2e89b5",
+  },
+  {
+    name: "GroenLinks",
+    seats: 16,
+    eerste: 4,
+    color: "#82bb00"
+  },
+  {
     name: "SP",
-    seats: 13,
+    seats: 14,
     eerste: 9,
     color: "#fe2b24"
   },
@@ -43,21 +43,21 @@ export default [
   },
   {
     name: "ChristenUnie",
-    seats: 5,
+    seats: 6,
     eerste: 3,
     color: "#26a2ec"
+  },
+  {
+    name: "Partij vd Dieren",
+    seats: 5,
+    eerste: 2,
+    color: "#006b2d"
   },
   {
     name: "50PLUS",
     seats: 4,
     eerste: 2,
     color: "#7f1382"
-  },
-  {
-    name: "Partij vd Dieren",
-    seats: 4,
-    eerste: 2,
-    color: "#006b2d"
   },
   {
     name: "SGP",
@@ -73,7 +73,7 @@ export default [
   },
   {
     name: "FvD",
-    seats: 3,
+    seats: 2,
     eerste: 0,
     color: "#651817"
   },

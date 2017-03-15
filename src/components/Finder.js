@@ -25,6 +25,7 @@ class Finder extends Component {
     let previousCoalitionSize = null;
     return (
       <div className="Finder">
+        <h2>Mogelijke coalities</h2>
         <ul>
           {coalitions.map(coalition => {
             let className = 'coalition';

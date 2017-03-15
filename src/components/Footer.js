@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default () => (
   <div className="Footer">
-    zetels gebaseerd op <a href="http://peil.nl">peil.nl</a>
+    zetels gebaseerd op exit polls van <a href="http://nos.nl">nos.nl</a>
     <span className="separator">|</span>
     door <a href="http://larixk.nl/">Larix Kortbeek</a> en Jurian van der Hoeven
   </div>
