@@ -2,6 +2,7 @@
   border-top: 1px solid #eee;
   padding-top: 20px;
   margin: 10px;
+
 }
 
 .Finder h2 {
@@ -39,7 +40,7 @@
 }
 
 .Finder .coalition-first-of-group {
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 .Finder .party {
@@ -85,4 +86,35 @@
 .Finder button:hover {
   cursor: pointer;
   box-shadow: 0 10px 10px #fafafa;
+}
+
+.Finder .toggles {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.Finder .toggles h3 {
+  margin-top: 80px;
+}
+
+.Finder .toggle {
+  display: inline-block;
+  width: auto;
+  min-width: 0;
+  font-size: 0.8em;
+  margin: 5px;
+  border-color: black;
+  opacity: 0.2;
+}
+.Finder .toggle-active {
+  opacity: 1;
+}
+.Finder .toggle:after {
+
+  content: ' ×';
+}
+.Finder .toggle-active:after {
+
+  content: ' ✓';
 }
