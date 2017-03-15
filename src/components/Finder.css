@@ -89,13 +89,17 @@
 }
 
 .Finder .toggles {
-  text-align: center;
+  text-align: left;
   max-width: 660px;
   margin: 0 auto;
 }
 
-.Finder .toggles h3 {
+.Finder .toggles p {
+ text-align: left;
+}
+.Finder h3 {
   margin-top: 80px;
+  text-align: center;
 }
 
 .Finder .toggle {
