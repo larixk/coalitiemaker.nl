@@ -32,7 +32,7 @@ export default [
   {
     name: "FvD",
     seats: 8,
-    eerste: 12,
+    eerste: 2,
     color: "#651817"
   },
   {
@@ -74,7 +74,7 @@ export default [
   {
     name: "JA21",
     seats: 3,
-    eerste: 0,
+    eerste: 8,
     color: "#242B57"
   },
   {
