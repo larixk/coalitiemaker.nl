@@ -20,6 +20,20 @@ class App extends Component {
     };
   }
 
+  handleClickFinder(parties) {
+    this.setState(
+      {
+        active: parties
+      },
+      () => {
+        window.location.hash = this.state.active
+          .map(party => party.name)
+          .join("+");
+      }
+    );
+    window.scrollTo(0, 0);
+  }
+
   toggleParty(party) {
     this.setState(
       {
@@ -75,7 +89,6 @@ class App extends Component {
             hovered={this.state.hovered === party}
             key={party.name + "-" + i}
             backgroundColor={party.color}
-            animationDelay={i * 0.01 + "s"}
           />
         ))
       ),
@@ -112,7 +125,6 @@ class App extends Component {
                 <Seat
                   key={"required-" + i}
                   backgroundColor="#eee"
-                  animationDelay={i * 0.01 + "s"}
                   disabled={true}
                 />
               )
@@ -124,7 +136,6 @@ class App extends Component {
               <Seat
                 key={"required-" + (75 - activeSum - i)}
                 backgroundColor="#eee"
-                animationDelay={i * 0.01 + "s"}
                 disabled={true}
               />
             ))}
@@ -161,19 +172,7 @@ class App extends Component {
           </div>
         </div>
         <Finder
-          onClick={parties => {
-            this.setState(
-              {
-                active: parties
-              },
-              () => {
-                window.location.hash = this.state.active
-                  .map(party => party.name)
-                  .join("+");
-              }
-            );
-            window.scrollTo(0, 0);
-          }}
+          onClick={this.handleClickFinder}
           parties={parties}
         />
         <Footer />

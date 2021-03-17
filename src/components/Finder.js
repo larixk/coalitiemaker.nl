@@ -119,4 +119,4 @@ class Finder extends Component {
   }
 }
 
-export default Finder;
+export default React.memo(Finder);

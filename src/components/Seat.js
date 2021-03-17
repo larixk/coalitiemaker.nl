@@ -7,7 +7,6 @@ export default (
     onMouseLeave,
     hovered,
     backgroundColor,
-    animationDelay,
     onToggle
   }
 ) => (
@@ -17,6 +16,6 @@ export default (
     onMouseEnter={onMouseEnter}
     onMouseLeave={onMouseLeave}
   >
-    <div className="seat-color" style={{ animationDelay, backgroundColor }} />
+    <div className="seat-color" style={{ backgroundColor }} />
   </button>
 );

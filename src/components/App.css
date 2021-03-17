@@ -75,8 +75,6 @@ svg {
   top: 50%;
   left: 50%;
   border-radius: 10%;
-  animation: plop .2s;
-  animation-fill-mode: backwards;
 }
 
 .seat.hovered .seat-color {
