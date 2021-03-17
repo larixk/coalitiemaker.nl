@@ -1,63 +1,69 @@
 export default [
   {
     name: "VVD",
-    seats: 31,
-    eerste: 13,
+    seats: 35,
+    eerste: 12,
     color: "#ff7600"
   },
   {
-    name: "CDA",
-    seats: 19,
-    eerste: 12,
-    color: "#6ab651"
-  },
-  {
     name: "D66",
-    seats: 19,
-    eerste: 10,
+    seats: 27,
+    eerste: 7,
     color: "#a7e5c0"
   },
   {
     name: "PVV",
-    seats: 19,
-    eerste: 9,
+    seats: 17,
+    eerste: 5,
     color: "#2e89b5",
   },
   {
-    name: "GroenLinks",
-    seats: 16,
-    eerste: 4,
-    color: "#82bb00"
-  },
-  {
-    name: "SP",
+    name: "CDA",
     seats: 14,
     eerste: 9,
-    color: "#fe2b24"
+    color: "#6ab651"
   },
   {
     name: "PvdA",
     seats: 9,
-    eerste: 8,
+    eerste: 6,
     color: "#e2001a"
   },
   {
-    name: "ChristenUnie",
-    seats: 6,
-    eerste: 3,
-    color: "#26a2ec"
+    name: "GroenLinks",
+    seats: 8,
+    eerste: 8,
+    color: "#82bb00"
+  },
+  {
+    name: "SP",
+    seats: 8,
+    eerste: 4,
+    color: "#fe2b24"
+  },
+  {
+    name: "FvD",
+    seats: 7,
+    eerste: 12,
+    color: "#651817"
   },
   {
     name: "Partij vd Dieren",
-    seats: 5,
-    eerste: 2,
+    seats: 6,
+    eerste: 3,
     color: "#006b2d"
   },
   {
-    name: "50PLUS",
+    name: "ChristenUnie",
     seats: 4,
-    eerste: 2,
-    color: "#7f1382"
+    eerste: 4,
+    color: "#26a2ec"
+  },
+  {
+    name: "Volt",
+    seats: 4,
+    eerste: 0,
+    color: "#4e2277"
   },
   {
     name: "SGP",
@@ -66,15 +72,33 @@ export default [
     color: "#f37022"
   },
   {
-    name: "DENK",
+    name: "JA21",
     seats: 3,
+    eerste: 0,
+    color: "#242B57"
+  },
+  {
+    name: "DENK",
+    seats: 2,
     eerste: 0,
     color: "#39afb6"
   },
   {
-    name: "FvD",
-    seats: 2,
+    name: "50PLUS",
+    seats: 1,
+    eerste: 2,
+    color: "#7f1382"
+  },
+  {
+    name: "BBB",
+    seats: 1,
     eerste: 0,
-    color: "#651817"
+    color: "#94c224"
+  },
+  {
+    name: "BIJ1",
+    seats: 1,
+    eerste: 0,
+    color: "#FFFF00"
   },
 ];
