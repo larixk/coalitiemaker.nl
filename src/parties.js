@@ -1,7 +1,7 @@
 export default [
   {
     name: "VVD",
-    seats: 35,
+    seats: 36,
     eerste: 12,
     color: "#ff7600"
   },
@@ -30,6 +30,12 @@ export default [
     color: "#e2001a"
   },
   {
+    name: "FvD",
+    seats: 8,
+    eerste: 12,
+    color: "#651817"
+  },
+  {
     name: "GroenLinks",
     seats: 8,
     eerste: 8,
@@ -42,14 +48,8 @@ export default [
     color: "#fe2b24"
   },
   {
-    name: "FvD",
-    seats: 7,
-    eerste: 12,
-    color: "#651817"
-  },
-  {
     name: "Partij vd Dieren",
-    seats: 6,
+    seats: 5,
     eerste: 3,
     color: "#006b2d"
   },
@@ -61,7 +61,7 @@ export default [
   },
   {
     name: "Volt",
-    seats: 4,
+    seats: 3,
     eerste: 0,
     color: "#4e2277"
   },
