@@ -13,14 +13,16 @@ class App extends Component {
   constructor() {
     super();
     const hashParties = window.location.hash
-      ? window.location.hash.substr(1).split("+")
+      ? decodeURI(window.location.hash.substr(1)).split("+")
       : [];
+
     this.state = {
       active: parties.filter((party) => hashParties.includes(party.name)),
     };
   }
 
   handleClickFinder(parties) {
+    console.log(parties);
     this.setState(
       {
         active: parties,
@@ -254,7 +256,10 @@ class App extends Component {
             )}
           </div>
         </div>
-        <Finder onClick={this.handleClickFinder} parties={parties} />
+        <Finder
+          onClick={(parties) => this.handleClickFinder(parties)}
+          parties={parties}
+        />
         <Footer />
       </div>
     );
