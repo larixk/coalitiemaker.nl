@@ -1,104 +1,98 @@
 export default [
   {
-    name: "VVD",
-    seats: 36,
-    eerste: 12,
-    color: "#ff7600"
-  },
-  {
-    name: "D66",
-    seats: 27,
-    eerste: 7,
-    color: "#a7e5c0"
-  },
-  {
     name: "PVV",
-    seats: 17,
-    eerste: 5,
+    seats: 35,
+    eerste: 4,
     color: "#2e89b5",
   },
   {
+    name: "GLPVDA",
+    seats: 26,
+    eerste: 14,
+    color: "#e2001a",
+  },
+  {
+    name: "VVD",
+    seats: 23,
+    eerste: 10,
+    color: "#ff7600",
+  },
+  {
+    name: "NSC",
+    seats: 20,
+    eerste: 12,
+    color: "#13123b",
+  },
+  {
+    name: "D66",
+    seats: 10,
+    eerste: 5,
+    color: "#a7e5c0",
+  },
+  {
+    name: "BBB",
+    seats: 7,
+    eerste: 16,
+    color: "#94c224",
+  },
+  {
     name: "CDA",
-    seats: 14,
+    seats: 5,
     eerste: 9,
-    color: "#6ab651"
-  },
-  {
-    name: "PvdA",
-    seats: 9,
-    eerste: 6,
-    color: "#e2001a"
-  },
-  {
-    name: "FvD",
-    seats: 8,
-    eerste: 2,
-    color: "#651817"
-  },
-  {
-    name: "GroenLinks",
-    seats: 8,
-    eerste: 8,
-    color: "#82bb00"
+    color: "#6ab651",
   },
   {
     name: "SP",
-    seats: 8,
-    eerste: 4,
-    color: "#fe2b24"
+    seats: 5,
+    eerste: 3,
+    color: "#fe2b24",
   },
   {
     name: "Partij vd Dieren",
-    seats: 5,
+    seats: 4,
     eerste: 3,
-    color: "#006b2d"
+    color: "#006b2d",
+  },
+  {
+    name: "FvD",
+    seats: 3,
+    eerste: 2,
+    color: "#651817",
   },
   {
     name: "ChristenUnie",
-    seats: 4,
-    eerste: 4,
-    color: "#26a2ec"
-  },
-  {
-    name: "Volt",
     seats: 3,
-    eerste: 0,
-    color: "#4e2277"
+    eerste: 3,
+    color: "#26a2ec",
   },
   {
     name: "SGP",
     seats: 3,
     eerste: 2,
-    color: "#f37022"
+    color: "#f37022",
   },
   {
-    name: "JA21",
-    seats: 3,
-    eerste: 8,
-    color: "#242B57"
+    name: "Volt",
+    seats: 2,
+    eerste: 2,
+    color: "#4e2277",
   },
   {
     name: "DENK",
     seats: 2,
     eerste: 0,
-    color: "#39afb6"
+    color: "#39afb6",
+  },
+  {
+    name: "JA21",
+    seats: 1,
+    eerste: 3,
+    color: "#242B57",
   },
   {
     name: "50PLUS",
     seats: 1,
-    eerste: 2,
-    color: "#7f1382"
-  },
-  {
-    name: "BBB",
-    seats: 1,
-    eerste: 0,
-    color: "#94c224"
-  },
-  {
-    name: "BIJ1",
-    seats: 1,
-    eerste: 0,
-    color: "#FFFF00"
+    eerste: 1,
+    color: "#7f1382",
   },
 ];
