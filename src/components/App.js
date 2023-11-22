@@ -189,8 +189,8 @@ class App extends Component {
           </svg>
           <p>
             Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede
-            Kamer inzichtelijk. Op dit moment op basis van de exitpoll van de
-            NOS van 22 november 2023, 21:00.
+            Kamer inzichtelijk. Op dit moment op basis van de exitpoll van Ipsos
+            in opdracht van de NOS en RTL van 22 november 2023, 21:43.
           </p>
         </div>
         <div className="seats">

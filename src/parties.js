@@ -7,13 +7,13 @@ export default [
   },
   {
     name: "GLPVDA",
-    seats: 26,
+    seats: 25,
     eerste: 14,
     color: "#e2001a",
   },
   {
     name: "VVD",
-    seats: 23,
+    seats: 24,
     eerste: 10,
     color: "#ff7600",
   },
@@ -48,16 +48,16 @@ export default [
     color: "#fe2b24",
   },
   {
-    name: "Partij vd Dieren",
-    seats: 4,
-    eerste: 3,
-    color: "#006b2d",
-  },
-  {
     name: "FvD",
     seats: 3,
     eerste: 2,
     color: "#651817",
+  },
+  {
+    name: "Partij vd Dieren",
+    seats: 3,
+    eerste: 3,
+    color: "#006b2d",
   },
   {
     name: "ChristenUnie",
@@ -72,16 +72,16 @@ export default [
     color: "#f37022",
   },
   {
+    name: "DENK",
+    seats: 3,
+    eerste: 0,
+    color: "#39afb6",
+  },
+  {
     name: "Volt",
     seats: 2,
     eerste: 2,
     color: "#4e2277",
-  },
-  {
-    name: "DENK",
-    seats: 2,
-    eerste: 0,
-    color: "#39afb6",
   },
   {
     name: "JA21",
