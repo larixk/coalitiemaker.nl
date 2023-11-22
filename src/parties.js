@@ -20,7 +20,7 @@ export default [
   {
     name: "NSC",
     seats: 20,
-    eerste: 12,
+    eerste: 0,
     color: "#13123b",
   },
   {
@@ -38,7 +38,7 @@ export default [
   {
     name: "CDA",
     seats: 5,
-    eerste: 9,
+    eerste: 6,
     color: "#6ab651",
   },
   {
