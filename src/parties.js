@@ -6,7 +6,7 @@ export default [
     color: "#2e89b5",
   },
   {
-    name: "GroenLinks-PvdA",
+    name: "PvdA/GL",
     seats: 25,
     eerste: 14,
     color: "#e2001a",
@@ -18,7 +18,7 @@ export default [
     color: "#ff7600",
   },
   {
-    name: "Nieuw Sociaal Contract",
+    name: "NSC",
     seats: 20,
     eerste: 0,
     color: "#13123b",
@@ -30,7 +30,7 @@ export default [
     color: "#a7e5c0",
   },
   {
-    name: "BoerBurgerBeweging",
+    name: "BBB",
     seats: 7,
     eerste: 16,
     color: "#94c224",
@@ -54,7 +54,7 @@ export default [
     color: "#39afb6",
   },
   {
-    name: "Forum voor Democratie",
+    name: "FvD",
     seats: 3,
     eerste: 2,
     color: "#651817",
@@ -66,13 +66,13 @@ export default [
     color: "#f37022",
   },
   {
-    name: "Partij voor de Dieren",
+    name: "PvdD",
     seats: 3,
     eerste: 3,
     color: "#006b2d",
   },
   {
-    name: "ChristenUnie",
+    name: "CU",
     seats: 3,
     eerste: 3,
     color: "#26a2ec",
