@@ -1,5 +1,3 @@
-import leftPad from "left-pad";
-
 import times from "./times";
 
 const doesNotContainInvalidParties = (coalition) =>
@@ -30,8 +28,10 @@ const compare = (a, b) =>
 
 export default (houseRequirements) => (parties) =>
   times(Math.pow(2, parties.length), (i) => ({
-    hash: leftPad(i.toString(2), parties.length, 0),
-    parties: leftPad(i.toString(2), parties.length, 0)
+    hash: i.toString(2).padStart(parties.length, "0"),
+    parties: i
+      .toString(2)
+      .padStart(parties.length, "0")
       .split("")
       .map((b, j) => (b === "0" ? null : parties[j]))
       .filter((a) => a),
