@@ -1,4 +1,4 @@
-export default [
+const parties = [
   {
     name: "PVV",
     seats: 30,
@@ -90,3 +90,9 @@ export default [
     color: "#242B57",
   },
 ];
+
+const sortedParties = parties
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .sort((a, b) => b.seats - a.seats);
+
+export default sortedParties;
