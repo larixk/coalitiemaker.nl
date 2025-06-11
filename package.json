@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9.3"
+    "react-scripts": "5.0.1"
   },
   "dependencies": {
     "react": "^17.0.0",
@@ -16,5 +16,17 @@
     "eject": "react-scripts eject",
     "deploy": "aws s3 sync ./build s3://coalitiemaker.nl --acl public-read",
     "release": "yarn run build && yarn run deploy"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
