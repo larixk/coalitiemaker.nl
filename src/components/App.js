@@ -189,11 +189,13 @@ class App extends Component {
               fill="#414042"
             />
           </svg>
-          <p>
-            Coalitiemaker maakt de mogelijke coalities in de Nederlandse Tweede
-            Kamer inzichtelijk. Op dit moment op basis van de voorlopige
-            uitlsagen op nos.nl, 23 november 2023, 09:51.
-          </p>
+          <p>Coalitiemaker maakt de mogelijke coalities in de Tweede Kamer inzichtelijk.<br/>Op dit moment op basis van het gemiddelde uit de laatste peilingen van:</p>
+          <ul>
+            <li><a href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-tussen-deze-partijen-wisselen-kiezers-160084" target="_blank">EenVandaag (mei 2025)</a></li>
+            <li><a href="https://www.ipsos-publiek.nl/actueel/pvv-lijdt-niet-onder-kabinetsval-kloof-verdiept-zich/" target="_blank">Ipsos I&amp;O (06-06-2025)</a></li>
+            <li><a href="https://home.noties.nl/peil/" target="_blank">Peil.nl (07-06-2025)</a></li>
+          </ul>
+          <p><small>De peiling van EenVandaag (Verian) is gedaan <strong>voor</strong> de val van de huidige coalitie op 03-06-2025.<br/>Door marges in de peilingen en afronding van de gemiddelden zijn de cijfers niet exact.</small></p>
         </div>
         <div className="seats">
           <div className="seats-group seats-group-inactive">
