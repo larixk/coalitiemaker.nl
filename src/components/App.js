@@ -221,9 +221,6 @@ class App extends Component {
           </ul>
           <p>
             <small>
-              De peiling van EenVandaag (Verian) is gedaan <strong>voor</strong>{" "}
-              de val van de huidige coalitie op 03-06-2025.
-              <br />
               Door marges in de peilingen en afronding van de gemiddelden zijn
               de cijfers niet exact.
             </small>
