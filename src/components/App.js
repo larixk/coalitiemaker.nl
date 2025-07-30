@@ -189,13 +189,45 @@ class App extends Component {
               fill="#414042"
             />
           </svg>
-          <p>Coalitiemaker maakt de mogelijke coalities in de Tweede Kamer inzichtelijk.<br/>Op dit moment op basis van het gemiddelde uit de laatste peilingen van:</p>
+          <p>
+            Coalitiemaker maakt de mogelijke coalities in de Tweede Kamer
+            inzichtelijk.
+            <br />
+            Op dit moment op basis van het gemiddelde uit de laatste peilingen
+            van:
+          </p>
           <ul>
-            <li><a href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-tussen-deze-partijen-wisselen-kiezers-160084" target="_blank">EenVandaag (mei 2025)</a></li>
-            <li><a href="https://www.ipsos-publiek.nl/actueel/pvv-lijdt-niet-onder-kabinetsval-kloof-verdiept-zich/" target="_blank">Ipsos I&amp;O (06-06-2025)</a></li>
-            <li><a href="https://home.noties.nl/peil/" target="_blank">Peil.nl (07-06-2025)</a></li>
+            <li>
+              <a
+                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/vvd-en-cda-nu-even-groot-in-zetelpeiling-kiezers-vinden-dilan-yesilgoz-premier-onwaardig-en-henri-bontenbal-duidelijk-en-integer-160895"
+                target="_blank"
+              >
+                EenVandaag (29-07-2025)
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-vvd-valt-buiten-de-top-3/"
+                target="_blank"
+              >
+                Ipsos I&amp;O (30-07-2025)
+              </a>
+            </li>
+            <li>
+              <a href="https://home.noties.nl/peil/" target="_blank">
+                Peil.nl (26-07-2025)
+              </a>
+            </li>
           </ul>
-          <p><small>De peiling van EenVandaag (Verian) is gedaan <strong>voor</strong> de val van de huidige coalitie op 03-06-2025.<br/>Door marges in de peilingen en afronding van de gemiddelden zijn de cijfers niet exact.</small></p>
+          <p>
+            <small>
+              De peiling van EenVandaag (Verian) is gedaan <strong>voor</strong>{" "}
+              de val van de huidige coalitie op 03-06-2025.
+              <br />
+              Door marges in de peilingen en afronding van de gemiddelden zijn
+              de cijfers niet exact.
+            </small>
+          </p>
         </div>
         <div className="seats">
           <div className="seats-group seats-group-inactive">
