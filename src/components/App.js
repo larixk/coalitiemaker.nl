@@ -199,10 +199,10 @@ class App extends Component {
           <ul>
             <li>
               <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/vvd-en-cda-nu-even-groot-in-zetelpeiling-kiezers-vinden-dilan-yesilgoz-premier-onwaardig-en-henri-bontenbal-duidelijk-en-integer-160895"
+                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/vvd-verliest-8-zetels-in-nieuwe-peiling-moet-dilan-yesilgoz-weg-als-lijsttrekker-ruim-helft-van-kiezers-die-vvd-stemden-vindt-van-wel-161165"
                 target="_blank"
               >
-                EenVandaag (29-07-2025)
+                EenVandaag (26-08-2025)
               </a>
             </li>
             <li>
@@ -215,7 +215,7 @@ class App extends Component {
             </li>
             <li>
               <a href="https://home.noties.nl/peil/" target="_blank">
-                Peil.nl (26-07-2025)
+                Peil.nl (25-08-2025)
               </a>
             </li>
           </ul>

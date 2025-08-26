@@ -1,20 +1,20 @@
 const polls = {
   eenVandaag: {
-    PVV: 30,
-    "PvdA/GL": 29,
-    CDA: 23,
-    VVD: 23,
+    PVV: 33,
+    "PvdA/GL": 26,
+    CDA: 22,
+    VVD: 15,
     D66: 10,
-    JA21: 7,
+    JA21: 9,
     SP: 7,
+    CU: 5,
+    BBB: 4,
     FvD: 4,
     PvdD: 4,
-    CU: 3,
+    DENK: 4,
+    Volt: 4,
     SGP: 3,
-    BBB: 2,
-    DENK: 2,
-    Volt: 2,
-    NSC: 1,
+    NSC: 0,
   },
   ipsos: {
     PVV: 27,
@@ -34,18 +34,18 @@ const polls = {
     NSC: 1,
   },
   peil: {
-    PVV: 29,
-    "PvdA/GL": 27,
-    CDA: 21,
-    VVD: 19,
+    PVV: 30,
+    "PvdA/GL": 29,
+    CDA: 22,
+    VVD: 15,
     D66: 10,
-    JA21: 8,
-    SP: 8,
-    BBB: 5,
-    PvdD: 5,
+    JA21: 9,
+    SP: 7,
+    BBB: 7,
     DENK: 4,
     FvD: 4,
     SGP: 4,
+    PvdD: 3,
     CU: 3,
     Volt: 3,
     NSC: 0,
@@ -130,6 +130,8 @@ const parties = [
   },
 ];
 
+
+
 // Calculate the averages, rounding to whole seats using the largest remainder method
 let totalFractionalSeats = 0;
 
@@ -146,8 +148,22 @@ for (let i = 0; i < remainingSeats; i++) {
   parties[i].seats++;
 }
 
+const sum = (obj) => Object.values(obj).reduce((a, b) => a + b, 0);
+
+if (sum(polls.eenVandaag) !== 150) {
+  throw new Error("Total seats is not 150 for eenVandaag");
+}
+
+if (sum(polls.ipsos) !== 150) {
+  throw new Error("Total seats is not 150 for ipsos");
+}
+
+if (sum(polls.peil) !== 150) {
+  throw new Error("Total seats is not 150 for peil");
+}
+
 if (parties.reduce((a, b) => a + b.seats, 0) !== 150) {
-  throw new Error("Total seats is not 150");
+  throw new Error("Total seats is not 150 for parties after rounding");
 }
 
 const sortedParties = parties
