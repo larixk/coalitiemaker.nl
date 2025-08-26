@@ -199,10 +199,10 @@ class App extends Component {
           <ul>
             <li>
               <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/vvd-en-cda-nu-even-groot-in-zetelpeiling-kiezers-vinden-dilan-yesilgoz-premier-onwaardig-en-henri-bontenbal-duidelijk-en-integer-160895"
+                href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-zo-staan-de-politieke-partijen-er-voor-160080"
                 target="_blank"
               >
-                EenVandaag (29-07-2025)
+                EenVandaag (26-08-2025)
               </a>
             </li>
             <li>
