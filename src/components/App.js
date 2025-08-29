@@ -199,7 +199,7 @@ class App extends Component {
           <ul>
             <li>
               <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/vvd-verliest-8-zetels-in-nieuwe-peiling-moet-dilan-yesilgoz-weg-als-lijsttrekker-ruim-helft-van-kiezers-die-vvd-stemden-vindt-van-wel-161165"
+                href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-zo-staan-de-politieke-partijen-er-voor-160080"
                 target="_blank"
               >
                 EenVandaag (26-08-2025)
