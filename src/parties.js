@@ -17,19 +17,19 @@ const polls = {
     NSC: 0,
   },
   ipsos: {
-    PVV: 27,
-    CDA: 24,
-    "PvdA/GL": 24,
-    VVD: 20,
-    D66: 12,
-    JA21: 7,
-    PvdD: 6,
+    PVV: 31,
+    CDA: 25,
+    "PvdA/GL": 23,
+    VVD: 15,
+    D66: 11,
+    JA21: 9,
     SP: 6,
-    BBB: 4,
-    CU: 4,
+    PvdD: 6,
+    BBB: 6,
     DENK: 4,
-    SGP: 4,
     Volt: 4,
+    SGP: 3,
+    CU: 3,
     FvD: 3,
     NSC: 1,
   },
@@ -129,8 +129,6 @@ const parties = [
     color: "#242B57",
   },
 ];
-
-
 
 // Calculate the averages, rounding to whole seats using the largest remainder method
 let totalFractionalSeats = 0;

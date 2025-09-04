@@ -207,10 +207,10 @@ class App extends Component {
             </li>
             <li>
               <a
-                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-vvd-valt-buiten-de-top-3/"
+                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-cda-voegt-zich-bij-top-twee/"
                 target="_blank"
               >
-                Ipsos I&amp;O (30-07-2025)
+                Ipsos I&amp;O (03-09-2025)
               </a>
             </li>
             <li>
