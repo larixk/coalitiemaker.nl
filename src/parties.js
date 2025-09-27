@@ -15,6 +15,7 @@ const polls = {
     Volt: 4,
     SGP: 3,
     NSC: 0,
+	"50plus": 0,
   },
   ipsos: {
     PVV: 31,
@@ -32,6 +33,7 @@ const polls = {
     CU: 3,
     FvD: 3,
     NSC: 1,
+	"50plus": 0,
   },
   peil: {
     PVV: 28,
@@ -49,6 +51,7 @@ const polls = {
     CU: 3,
     Volt: 3,
     NSC: 0,
+	"50plus": 1,
   },
 };
 
@@ -127,6 +130,11 @@ const parties = [
     name: "JA21",
     eerste: 3,
     color: "#242B57",
+  },
+  {
+    name: "50plus",
+    eerste: 1,
+    color: "#500051",
   },
 ];
 
