@@ -215,7 +215,7 @@ class App extends Component {
             </li>
             <li>
               <a href="https://home.noties.nl/peil/" target="_blank">
-                Peil.nl (19-09-2025)
+                Peil.nl (03-10-2025)
               </a>
             </li>
           </ul>
