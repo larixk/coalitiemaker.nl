@@ -202,7 +202,7 @@ class App extends Component {
                 href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-zo-staan-de-politieke-partijen-er-voor-160080"
                 target="_blank"
               >
-                EenVandaag (26-08-2025)
+                EenVandaag (30-09-2025)
               </a>
             </li>
             <li>
