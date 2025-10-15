@@ -199,23 +199,23 @@ class App extends Component {
           <ul>
             <li>
               <a
-                href="https://eenvandaag.avrotros.nl/peilingtrends/zetelpeiling-zo-staan-de-politieke-partijen-er-voor-160080"
+                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/pvv-verliest-licht-in-nieuwe-zetelpeiling-d66-ja21-en-vvd-nu-op-gelijke-hoogte-161636"
                 target="_blank"
               >
-                EenVandaag (30-09-2025)
+                EenVandaag (14-10-2025)
               </a>
             </li>
             <li>
               <a
-                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-geweld-den-haag-leidt-niet-tot-electorale-verschuivingen/"
+                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-surplace-voor-de-eindfase/"
                 target="_blank"
               >
-                Ipsos I&amp;O (29-09-2025)
+                Ipsos I&amp;O (06-10-2025)
               </a>
             </li>
             <li>
               <a href="https://home.noties.nl/peil/" target="_blank">
-                Peil.nl (03-10-2025)
+                Peil.nl (10-10-2025)
               </a>
             </li>
           </ul>
