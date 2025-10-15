@@ -1,7 +1,7 @@
 const polls = {
   eenVandaag: {
     PVV: 31,
-    "PvdA/GL": 25,
+    "GL-PvdA": 25,
     VVD: 14,
     NSC: 0,
     D66: 14,
@@ -20,7 +20,7 @@ const polls = {
   ipsos: {
     PVV: 31,
     CDA: 24,
-    "PvdA/GL": 22,
+    "GL-PvdA": 22,
     D66: 14,
     VVD: 13,
     JA21: 13,
@@ -37,7 +37,7 @@ const polls = {
   },
   peil: {
     PVV: 31,
-    "PvdA/GL": 25,
+    "GL-PvdA": 25,
     CDA: 22,
     VVD: 15,
     D66: 14,
@@ -62,7 +62,7 @@ const parties = [
     color: "#2e89b5",
   },
   {
-    name: "PvdA/GL",
+    name: "GL-PvdA",
     eerste: 14,
     color: "#e2001a",
   },
