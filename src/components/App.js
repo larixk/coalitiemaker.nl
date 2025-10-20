@@ -207,15 +207,15 @@ class App extends Component {
             </li>
             <li>
               <a
-                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-surplace-voor-de-eindfase/"
+                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-d66-groeit-door-na-rtl-debat/"
                 target="_blank"
               >
-                Ipsos I&amp;O (06-10-2025)
+                Ipsos I&amp;O (15-10-2025)
               </a>
             </li>
             <li>
               <a href="https://home.noties.nl/peil/" target="_blank">
-                Peil.nl (10-10-2025)
+                Peil.nl (17-10-2025)
               </a>
             </li>
           </ul>
