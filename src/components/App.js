@@ -199,10 +199,10 @@ class App extends Component {
           <ul>
             <li>
               <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/pvv-verliest-licht-in-nieuwe-zetelpeiling-d66-ja21-en-vvd-nu-op-gelijke-hoogte-161636"
+                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/pvv-stijgt-weer-iets-in-nieuwe-zetelpeiling-nog-steeds-veel-zwevende-kiezers-161702"
                 target="_blank"
               >
-                EenVandaag (14-10-2025)
+                EenVandaag (21-10-2025)
               </a>
             </li>
             <li>
