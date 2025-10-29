@@ -20,13 +20,13 @@ The importer also extracts poll metadata (dates and URLs) and updates both the p
 
 ```bash
 cd tools/importer
-npm install
+yarn install
 ```
 
 ### Import Data
 
 ```bash
-npm run import
+yarn run import
 ```
 
 This will:
