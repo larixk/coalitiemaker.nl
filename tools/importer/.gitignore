@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Debug files
+debug.js
+table.html
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
