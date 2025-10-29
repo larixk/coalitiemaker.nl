@@ -10,7 +10,6 @@ const __dirname = dirname(__filename);
 const WIKIPEDIA_URL =
   "https://nl.wikipedia.org/wiki/Tweede_Kamerverkiezingen_2025/Peilingen";
 
-// Mapping van Wikipedia partijnamen naar onze code namen
 const PARTY_NAME_MAPPING = {
   PVV: "PVV",
   "GL-PvdA": "GL-PvdA",
@@ -45,7 +44,7 @@ const POLL_SOURCES = {
 };
 
 async function fetchWikipediaPolls() {
-  console.log("Ophalen Wikipedia pagina...");
+  console.log("Fetching Wikipedia page...");
   const response = await axios.get(WIKIPEDIA_URL);
   const $ = cheerio.load(response.data);
 
@@ -61,26 +60,24 @@ async function fetchWikipediaPolls() {
     peil: { date: null, url: null },
   };
 
-  // Zoek de tabel met peilingen
   const table = $("table.wikitable").first();
 
   if (!table.length) {
-    throw new Error("Kon peilingen tabel niet vinden op Wikipedia");
+    throw new Error("Could not find poll table on Wikipedia");
   }
 
-  // Extract partij namen uit de header (eerste rij, vanaf kolom 2)
   const parties = [];
   const headerRow = table.find("tr").first();
   const headerCells = headerRow.find("th, td");
 
   headerCells.each((i, el) => {
-    // Skip eerste twee kolommen (Peilingsorganisatie, Datum)
-    // Stop bij "Overig" kolom
+    // Skip first two columns (Poll organization, Date)
+    // Stop at "Overig" column
     if (i < 2) return;
 
     const text = $(el).text().trim();
 
-    // Stop bij Overig of Refs
+    // Stop at Overig or Refs
     if (text === "Overig" || text === "Refs") return false;
 
     const mappedName = PARTY_NAME_MAPPING[text];
@@ -89,13 +86,13 @@ async function fetchWikipediaPolls() {
     }
   });
 
-  console.log(`Gevonden partijen (${parties.length}): ${parties.join(", ")}`);
+  console.log(`Found parties (${parties.length}): ${parties.join(", ")}`);
 
   if (parties.length === 0) {
-    throw new Error("Geen partijen gevonden in tabel header");
+    throw new Error("No parties found in table header");
   }
 
-  // Parse de data rijen
+  // Parse data rows
   table.find("tr").each((i, row) => {
     // Skip header row
     if (i === 0) return;
@@ -103,10 +100,10 @@ async function fetchWikipediaPolls() {
     const cells = $(row).find("td, th");
     if (cells.length < parties.length + 2) return;
 
-    // Eerste kolom bevat peiler naam
+    // First column contains poll name
     const peilerCell = $(cells[0]).text().trim();
 
-    // Identificeer welke peiler
+    // Identify which poll
     let pollSource = null;
     for (const [wikiName, codeName] of Object.entries(POLL_SOURCES)) {
       if (peilerCell.includes(wikiName)) {
@@ -115,38 +112,38 @@ async function fetchWikipediaPolls() {
       }
     }
 
-    // Skip als niet een van onze bronnen, of als we deze al hebben
+    // Skip if not one of our sources, or if we already have this one
     if (!pollSource || polls[pollSource]) {
       return;
     }
 
-    // Extract datum uit tweede kolom
+    // Extract date from second column
     const dateCell = $(cells[1]).text().trim();
 
-    // Extract referentie link uit laatste kolom
+    // Extract reference link from last column
     const refsCell = $(cells[cells.length - 1]);
-    const refLink = refsCell.find('a').first();
+    const refLink = refsCell.find("a").first();
     let refUrl = null;
 
     if (refLink.length) {
-      const href = refLink.attr('href');
-      if (href && href.startsWith('#')) {
-        // Zoek de referentie sectie voor de daadwerkelijke URL
+      const href = refLink.attr("href");
+      if (href && href.startsWith("#")) {
+        // Find the reference section for the actual URL
         const refId = href.substring(1);
         const refElement = $(`#${refId}`);
-        const externalLink = refElement.find('a.external').first();
+        const externalLink = refElement.find("a.external").first();
         if (externalLink.length) {
-          refUrl = externalLink.attr('href');
+          refUrl = externalLink.attr("href");
         }
       }
     }
 
-    // Extract zetels per partij (vanaf kolom 2)
+    // Extract seats per party (from column 2)
     const pollData = {};
     let totalSeats = 0;
 
     for (let partyIdx = 0; partyIdx < parties.length; partyIdx++) {
-      const cellIdx = partyIdx + 2; // +2 voor peiler en datum kolommen
+      const cellIdx = partyIdx + 2; // +2 for poll and date columns
       const seatText = $(cells[cellIdx]).text().trim();
       const seats = parseInt(seatText);
 
@@ -157,34 +154,27 @@ async function fetchWikipediaPolls() {
       }
     }
 
-    // Valideer dat we 150 zetels hebben
+    // Validate that we have 150 seats
     if (totalSeats === 150 && Object.keys(pollData).length >= 10) {
       polls[pollSource] = pollData;
       pollMetadata[pollSource] = { date: dateCell, url: refUrl };
-      console.log(`✓ ${pollSource}: ${totalSeats} zetels (${dateCell})`);
+      console.log(`✓ ${pollSource}: ${totalSeats} seats (${dateCell})`);
     } else if (totalSeats > 0) {
       console.log(
-        `⚠ ${pollSource}: ${totalSeats} zetels (incorrect, verwacht 150)`
+        `⚠ ${pollSource}: ${totalSeats} seats (incorrect, expected 150)`
       );
     }
   });
 
-  // Check of we alle drie de peilingen hebben gevonden
+  // Check if we have all three polls
   const missingPolls = Object.entries(polls)
     .filter(([key, value]) => !value)
     .map(([key]) => key);
 
   if (missingPolls.length > 0) {
     console.warn(
-      `Waarschuwing: Kon geen data vinden voor: ${missingPolls.join(", ")}`
+      `Warning: Could not find data for: ${missingPolls.join(", ")}`
     );
-
-    // Als EenVandaag ontbreekt, probeer eerst wat verder te zoeken
-    if (missingPolls.includes("eenVandaag")) {
-      console.log(
-        "Tip: EenVandaag publiceert mogelijk minder frequent. Je kunt overwegen alleen Ipsos en Peil.nl te gebruiken."
-      );
-    }
 
     throw new Error(`Incomplete data: ${missingPolls.join(", ")} ontbreken`);
   }
@@ -193,49 +183,51 @@ async function fetchWikipediaPolls() {
 }
 
 function updatePartiesFile(polls, metadata) {
-  console.log("\nBijwerken van src/parties.js...");
+  console.log("\nUpdating src/parties.js...");
 
   const partiesPath = join(__dirname, "..", "..", "src", "parties.js");
   const content = readFileSync(partiesPath, "utf-8");
 
-  // Maak de nieuwe polls object string - alle keys in quotes
   const pollsString = `const polls = ${JSON.stringify(polls, null, 2)};\n`;
 
-  // Maak de metadata object met mooie namen
   const metadataObject = {
     eenVandaag: {
       name: "EenVandaag",
       date: metadata.eenVandaag.date,
-      url: metadata.eenVandaag.url || "https://eenvandaag.avrotros.nl/opiniepanel/uitslagen"
+      url: metadata.eenVandaag.url,
     },
     ipsos: {
       name: "Ipsos I&O",
       date: metadata.ipsos.date,
-      url: metadata.ipsos.url || "https://www.ipsos-publiek.nl/actueel"
+      url: metadata.ipsos.url,
     },
     peil: {
       name: "Peil.nl",
       date: metadata.peil.date,
-      url: metadata.peil.url || "https://home.noties.nl/peil/"
-    }
+      url: metadata.peil.url,
+    },
   };
 
-  const metadataString = `\nexport const pollMetadata = ${JSON.stringify(metadataObject, null, 2)};\n`;
+  const metadataString = `\nexport const pollMetadata = ${JSON.stringify(
+    metadataObject,
+    null,
+    2
+  )};\n`;
 
-  // Replace de oude polls definitie
+  // Replace the old polls definition
   let updatedContent = content.replace(
     /const polls = \{[\s\S]*?\};\n/,
     pollsString
   );
 
-  // Replace de oude metadata definitie (of voeg toe als die er niet is)
-  if (updatedContent.includes('export const pollMetadata')) {
+  // Replace the old metadata definition
+  if (updatedContent.includes("export const pollMetadata")) {
     updatedContent = updatedContent.replace(
       /export const pollMetadata = \{[\s\S]*?\};\n/,
       metadataString
     );
   } else {
-    // Voeg metadata toe na de polls definitie
+    // Add metadata after the polls definition
     updatedContent = updatedContent.replace(
       pollsString,
       pollsString + metadataString
@@ -243,7 +235,7 @@ function updatePartiesFile(polls, metadata) {
   }
 
   writeFileSync(partiesPath, updatedContent, "utf-8");
-  console.log("✓ src/parties.js succesvol bijgewerkt");
+  console.log("✓ src/parties.js successfully updated");
 }
 
 async function main() {
@@ -260,10 +252,10 @@ async function main() {
 
     updatePartiesFile(polls, metadata);
 
-    console.log("\n✓ Import succesvol afgerond!");
+    console.log("\n✓ Import successfully completed!");
     process.exit(0);
   } catch (error) {
-    console.error("\n✗ Fout bij importeren:", error.message);
+    console.error("\n✗ Error during import:", error.message);
     process.exit(1);
   }
 }
