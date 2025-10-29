@@ -1,172 +1,101 @@
-const polls = {
-  eenVandaag: {
-    PVV: 29,
-    "GL-PvdA": 25,
-    VVD: 16,
-    NSC: 0,
-    D66: 24,
-    BBB: 3,
-    CDA: 19,
-    SP: 5,
-    DENK: 3,
-    PvdD: 2,
-    FvD: 6,
-    SGP: 3,
-    CU: 3,
-    Volt: 2,
-    JA21: 8,
-    "50plus": 2,
-  },
-  ipsos: {
-    PVV: 23,
-    "GL-PvdA": 23,
-    VVD: 17,
-    NSC: 1,
-    D66: 23,
-    BBB: 5,
-    CDA: 19,
-    SP: 4,
-    FvD: 6,
-    PvdD: 4,
-    DENK: 3,
-    SGP: 3,
-    CU: 3,
-    Volt: 2,
-    JA21: 11,
-    "50plus": 3,
-  },
-  peil: {
-    PVV: 23,
-    "GL-PvdA": 23,
-    D66: 22,
-    VVD: 22,
-    CDA: 20,
-    JA21: 9,
-    FvD: 7,
-    BBB: 4,
-    SP: 4,
-    DENK: 4,
-    SGP: 3,
-    PvdD: 3,
-    CU: 2,
-    Volt: 2,
-    "50plus": 2,
-    NSC: 0,
-  },
-};
-
 const parties = [
   {
     name: "PVV",
     eerste: 4,
+    seats: 25,
     color: "#2e89b5",
   },
   {
     name: "GL-PvdA",
     eerste: 14,
+    seats: 20,
     color: "#e2001a",
-  },
-  {
-    name: "VVD",
-    eerste: 10,
-    color: "#ff7600",
-  },
-  {
-    name: "NSC",
-    eerste: 0,
-    color: "#13123b",
   },
   {
     name: "D66",
     eerste: 5,
+    seats: 27,
     color: "#a7e5c0",
+  },
+  {
+    name: "VVD",
+    eerste: 10,
+    seats: 23,
+    color: "#ff7600",
   },
   {
     name: "BBB",
     eerste: 16,
+    seats: 4,
     color: "#94c224",
   },
   {
     name: "SP",
     eerste: 3,
+    seats: 3,
     color: "#fe2b24",
   },
   {
     name: "CDA",
     eerste: 6,
+    seats: 19,
     color: "#6ab651",
   },
   {
     name: "DENK",
     eerste: 0,
+    seats: 3,
     color: "#39afb6",
   },
   {
     name: "FvD",
     eerste: 2,
+    seats: 6,
     color: "#651817",
   },
   {
     name: "SGP",
     eerste: 2,
+    seats: 3,
     color: "#f37022",
   },
   {
     name: "PvdD",
     eerste: 3,
+    seats: 3,
     color: "#006b2d",
   },
   {
     name: "CU",
     eerste: 3,
+    seats: 2,
     color: "#26a2ec",
   },
   {
     name: "Volt",
     eerste: 2,
+    seats: 1,
     color: "#4e2277",
   },
   {
     name: "JA21",
     eerste: 3,
+    seats: 9,
     color: "#242B57",
   },
   {
     name: "50plus",
     eerste: 1,
+    seats: 2,
     color: "#500051",
   },
+  {
+    name: "NSC",
+    eerste: 0,
+    seats: 0,
+    color: "#13123b",
+  },
 ];
-
-// Calculate the averages, rounding to whole seats using the largest remainder method
-let totalFractionalSeats = 0;
-
-parties.forEach((p) => {
-  p.fractionalSeats =
-    (polls.eenVandaag[p.name] + polls.ipsos[p.name] + polls.peil[p.name]) / 3;
-  p.seats = Math.floor(p.fractionalSeats);
-  totalFractionalSeats += p.seats;
-});
-
-const remainingSeats = 150 - totalFractionalSeats;
-parties.sort((a, b) => (b.fractionalSeats % 1) - (a.fractionalSeats % 1));
-for (let i = 0; i < remainingSeats; i++) {
-  parties[i].seats++;
-}
-
-const sum = (obj) => Object.values(obj).reduce((a, b) => a + b, 0);
-
-if (sum(polls.eenVandaag) !== 150) {
-  throw new Error("Total seats is not 150 for eenVandaag");
-}
-
-if (sum(polls.ipsos) !== 150) {
-  throw new Error("Total seats is not 150 for ipsos");
-}
-
-if (sum(polls.peil) !== 150) {
-  throw new Error("Total seats is not 150 for peil");
-}
 
 if (parties.reduce((a, b) => a + b.seats, 0) !== 150) {
   throw new Error("Total seats is not 150 for parties after rounding");

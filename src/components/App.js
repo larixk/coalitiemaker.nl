@@ -192,46 +192,15 @@ class App extends Component {
           <p>
             Coalitiemaker maakt de mogelijke coalities in de Tweede Kamer
             inzichtelijk.
-            <br />
-            Op dit moment op basis van het gemiddelde uit de slotpeilingen van:
-          </p>
-          <ul>
-            <li>
-              <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/d66-stijgt-8-zetels-in-laatste-zetelpeiling-voor-verkiezingen-pvv-daalt-5-zetels-161768"
-                target="_blank"
-              >
-                EenVandaag (28-10-2025)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-vijf-partijen-dicht-bij-elkaar/"
-                target="_blank"
-              >
-                Ipsos I&amp;O (28-10-2025)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://maurice.nl/2025/10/28/slotpeiling-en-prognose-tk205/"
-                target="_blank"
-              >
-                Peil.nl (28-10-2025)
-              </a>
-            </li>
-          </ul>
-          <p>
-            <small>
-              Door marges in de peilingen en afronding van de gemiddelden zijn
-              de cijfers niet exact.
-            </small>
           </p>
           <p>
-            Zodra de exit-polls van Ipsos in opdracht van NOS en RTL bekend zijn
-            (naar verwachting rond 21:00 vanavond), zal de data hieronder worden
-            bijgewerkt. Hetzelfde geldt wanneer de volledige uitslagen van de
-            verkiezingen beschikbaar zijn.
+            Op dit moment op basis van{" "}
+            <a href="https://www.ipsos.com/nl-nl/hoe-werkt-een-exitpoll-tweede-kamerverkiezing-2025" target="_blank">
+              de exitpoll van Ipsos I&amp;O
+            </a>{" "}
+            van 29 oktober 2025, 21:00 uur. Zodra de volledige uitslagen van de
+            verkiezingen beschikbaar zijn, zal de data hieronder worden
+            bijgewerkt.
           </p>
         </div>
         <div className="seats">
