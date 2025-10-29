@@ -6,7 +6,7 @@ import Totals from "./Totals";
 import Finder from "./Finder";
 import "./App.css";
 
-import parties from "../parties";
+import parties, { pollMetadata } from "../parties";
 import times from "../util/times";
 
 class App extends Component {
@@ -197,27 +197,13 @@ class App extends Component {
             van:
           </p>
           <ul>
-            <li>
-              <a
-                href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/pvv-stijgt-weer-iets-in-nieuwe-zetelpeiling-nog-steeds-veel-zwevende-kiezers-161702"
-                target="_blank"
-              >
-                EenVandaag (21-10-2025)
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-cda-levert-in-partijen-groeien-naar-elkaar-toe/"
-                target="_blank"
-              >
-                Ipsos I&amp;O (24-10-2025)
-              </a>
-            </li>
-            <li>
-              <a href="https://home.noties.nl/peil/" target="_blank">
-                Peil.nl (17-10-2025)
-              </a>
-            </li>
+            {Object.values(pollMetadata).map((poll) => (
+              <li key={poll.name}>
+                <a href={poll.url} target="_blank" rel="noopener noreferrer">
+                  {poll.name} ({poll.date})
+                </a>
+              </li>
+            ))}
           </ul>
           <p>
             <small>
