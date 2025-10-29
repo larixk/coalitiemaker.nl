@@ -193,8 +193,7 @@ class App extends Component {
             Coalitiemaker maakt de mogelijke coalities in de Tweede Kamer
             inzichtelijk.
             <br />
-            Op dit moment op basis van het gemiddelde uit de laatste peilingen
-            van:
+            Op dit moment op basis van het gemiddelde uit de slotpeilingen van:
           </p>
           <ul>
             <li>
@@ -202,7 +201,7 @@ class App extends Component {
                 href="https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/d66-stijgt-8-zetels-in-laatste-zetelpeiling-voor-verkiezingen-pvv-daalt-5-zetels-161768"
                 target="_blank"
               >
-                EenVandaag (21-10-2025)
+                EenVandaag (28-10-2025)
               </a>
             </li>
             <li>
@@ -210,7 +209,7 @@ class App extends Component {
                 href="https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-vijf-partijen-dicht-bij-elkaar/"
                 target="_blank"
               >
-                Ipsos I&amp;O (24-10-2025)
+                Ipsos I&amp;O (28-10-2025)
               </a>
             </li>
             <li>
@@ -218,7 +217,7 @@ class App extends Component {
                 href="https://maurice.nl/2025/10/28/slotpeiling-en-prognose-tk205/"
                 target="_blank"
               >
-                Peil.nl (17-10-2025)
+                Peil.nl (18-10-2025)
               </a>
             </li>
           </ul>
@@ -227,6 +226,12 @@ class App extends Component {
               Door marges in de peilingen en afronding van de gemiddelden zijn
               de cijfers niet exact.
             </small>
+          </p>
+          <p>
+            Zodra de exit-polls van Ipsos in opdracht van NOS en RTL bekend zijn
+            (naar verwachting rond 21:00 vanavond), zal de data hieronder worden
+            bijgewerkt. Hetzelfde geldt wanneer de volledige uitslagen van de
+            verkiezingen beschikbaar zijn.
           </p>
         </div>
         <div className="seats">
