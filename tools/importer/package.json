@@ -1,0 +1,13 @@
+{
+  "name": "coalitiemaker-importer",
+  "version": "1.0.0",
+  "description": "Automated poll data importer for coalitiemaker.nl",
+  "type": "module",
+  "scripts": {
+    "import": "node scraper.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
