@@ -55,8 +55,6 @@ const polls = {
   }
 };
 
-
-
 export const pollMetadata = {
   "eenVandaag": {
     "name": "EenVandaag",

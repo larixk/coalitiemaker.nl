@@ -208,7 +208,7 @@ function updatePartiesFile(polls, metadata) {
     },
   };
 
-  const metadataString = `\nexport const pollMetadata = ${JSON.stringify(
+  const metadataString = `export const pollMetadata = ${JSON.stringify(
     metadataObject,
     null,
     2
@@ -223,14 +223,14 @@ function updatePartiesFile(polls, metadata) {
   // Replace the old metadata definition
   if (updatedContent.includes("export const pollMetadata")) {
     updatedContent = updatedContent.replace(
-      /export const pollMetadata = \{[\s\S]*?\};\n/,
-      metadataString
+      /\n+export const pollMetadata = \{[\s\S]*?\};\n/,
+      `\n\n${metadataString}`
     );
   } else {
     // Add metadata after the polls definition
     updatedContent = updatedContent.replace(
       pollsString,
-      pollsString + metadataString
+      `${pollsString}\n\n${metadataString}`
     );
   }
 
