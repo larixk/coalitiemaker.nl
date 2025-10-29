@@ -217,7 +217,7 @@ class App extends Component {
                 href="https://maurice.nl/2025/10/28/slotpeiling-en-prognose-tk205/"
                 target="_blank"
               >
-                Peil.nl (18-10-2025)
+                Peil.nl (28-10-2025)
               </a>
             </li>
           </ul>
