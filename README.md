@@ -16,8 +16,12 @@ Originally created for the 2017 Dutch general election, the project continues to
 
 ## Data
 
-The party and seat data is based on the latest available election results or polling from sources such as EenVandaag, Ipsos I&O, and Peil.nl.  
+The party and seat data is based on the latest available election results or polling from sources such as EenVandaag, Ipsos I&O, and Peil.nl.
 You can find and update this data in [`src/parties.js`](src/parties.js).
+
+### Automated Poll Updates
+
+Poll data is automatically updated via a [poll importer tool](tools/importer/) that scrapes the latest figures from Wikipedia. The importer runs on a configurable schedule via GitHub Actions and updates both seat counts and poll metadata (dates and source URLs). See [tools/importer/README.md](tools/importer/README.md) for more details.
 
 ## Contributing
 

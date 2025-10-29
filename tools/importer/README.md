@@ -1,93 +1,97 @@
 # Poll Data Importer
 
-Automatische importer voor peilingsdata van Wikipedia naar de Coalitiemaker app.
+Automated importer for Dutch election poll data from Wikipedia to the Coalitiemaker app.
 
-## Hoe het werkt
+## How it Works
 
-Dit script haalt automatisch de laatste peilingsdata op van Wikipedia en werkt `src/parties.js` bij met de meest recente cijfers van:
+This script automatically fetches the latest polling data from Wikipedia and updates `src/parties.js` with the most recent figures from:
+
 - EenVandaag
 - Ipsos I&O
 - Peil.nl
 
-De data wordt opgehaald van: https://nl.wikipedia.org/wiki/Tweede_Kamerverkiezingen_2025/Peilingen
+Data is sourced from: https://nl.wikipedia.org/wiki/Tweede_Kamerverkiezingen_2025/Peilingen
 
-## Handmatig gebruiken
+The importer also extracts poll metadata (dates and URLs) and updates both the poll data and links displayed in the app.
 
-### Installatie
+## Usage
+
+### Installation
 
 ```bash
 cd tools/importer
 npm install
 ```
 
-### Data importeren
+### Import Data
 
 ```bash
 npm run import
 ```
 
-Dit zal:
-1. De Wikipedia pagina ophalen
-2. De laatste peilingen parsen
-3. `src/parties.js` bijwerken met de nieuwe data
+This will:
 
-## Automatische updates via GitHub Actions
+1. Fetch the Wikipedia page
+2. Parse the latest polls from all three sources
+3. Extract poll dates and reference URLs
+4. Update `src/parties.js` with the new data and metadata
 
-De peilingsdata wordt automatisch bijgewerkt via een GitHub Action die draait op een configureerbaar schema.
+## Automated Updates via GitHub Actions
 
-### Frequentie aanpassen
+Poll data is automatically updated via a GitHub Action that runs on a configurable schedule.
 
-Bewerk `.github/workflows/update-polls.yml` om de frequentie aan te passen:
+### Adjusting Frequency
 
-**Hoog seizoen** (4x per dag om 6:00, 12:00, 18:00, 00:00 UTC):
+Edit `.github/workflows/update-polls.yml` to change the frequency:
+
+**High season** (2x per day at 12:00 and 18:00 UTC):
+
 ```yaml
 schedule:
-  - cron: '0 6,12,18,0 * * *'
+  - cron: "0 12,18 * * *"
 ```
 
-**Laag seizoen** (1x per week op maandag om 6:00 UTC):
+**Low season** (1x per week on Wednesday at 12:00 UTC):
+
 ```yaml
 schedule:
-  - cron: '0 6 * * 1'
+  - cron: "0 12 * * 3"
 ```
 
-**Andere voorbeelden:**
-- Dagelijks om 9:00 UTC: `'0 9 * * *'`
-- Elke 12 uur: `'0 */12 * * *'`
-- Elke 6 uur: `'0 */6 * * *'`
+## How the Scraper Works
 
-### Handmatig triggeren
+1. **Fetch Data**: Downloads the Wikipedia page containing poll data
+2. **Parse Table**: Locates and parses the table with seat distributions
+3. **Extract Data**: Retrieves the most recent polls for each polling organization
+4. **Extract Metadata**: Gets poll dates and reference URLs from Wikipedia citations
+5. **Validation**: Checks that each poll totals exactly 150 seats
+6. **Update**: Updates `src/parties.js` with new data and `pollMetadata`
 
-Je kunt de GitHub Action ook handmatig triggeren:
-1. Ga naar de "Actions" tab in GitHub
-2. Selecteer "Update Poll Data"
-3. Klik op "Run workflow"
+## Output Format
 
-## Hoe de scraper werkt
+The importer updates `src/parties.js` with:
 
-1. **Data ophalen**: Download de Wikipedia pagina met peilingsdata
-2. **Tabel parsen**: Zoek en parse de tabel met zetelverdeling
-3. **Data extractie**: Haal de meest recente peilingen op voor elk bureau
-4. **Validatie**: Check of elk peiling 150 zetels heeft
-5. **Update**: Werk `src/parties.js` bij met de nieuwe data
+- **Poll data**: Seat counts per party for each polling organization
+- **Poll metadata**: Poll names, dates, and source URLs
 
-## Troubleshooting
+```javascript
+const polls = {
+  "eenVandaag": { "PVV": 29, "GL-PvdA": 25, ... },
+  "ipsos": { "PVV": 23, "GL-PvdA": 23, ... },
+  "peil": { "PVV": 23, "GL-PvdA": 23, ... }
+};
 
-### "Kon geen data vinden voor..."
-
-De Wikipedia tabel structuur is mogelijk veranderd. Check of:
-- De partijnamen in `PARTY_NAME_MAPPING` nog kloppen
-- De peiler namen in `POLL_SOURCES` nog correct zijn
-- De tabel nog de class `wikitable` heeft
-
-### "Total seats is not 150"
-
-Er is een fout in de data extractie. Mogelijk:
-- Wikipedia tabel is incomplete
-- Partijen zijn hernoemd
-- Extra kolommen zijn toegevoegd aan de tabel
+export const pollMetadata = {
+  "eenVandaag": {
+    "name": "EenVandaag",
+    "date": "28 oktober 2025",
+    "url": "https://..."
+  },
+  ...
+};
+```
 
 ## Dependencies
 
-- `axios`: Voor het ophalen van de Wikipedia pagina
-- `cheerio`: Voor het parsen van de HTML tabel
+- `axios`: For fetching the Wikipedia page
+- `cheerio`: For parsing the HTML table
