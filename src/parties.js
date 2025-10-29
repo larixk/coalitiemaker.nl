@@ -1,58 +1,78 @@
 const polls = {
-  eenVandaag: {
-    PVV: 34,
+  "eenVandaag": {
+    "PVV": 29,
     "GL-PvdA": 25,
-    VVD: 15,
-    NSC: 0,
-    D66: 16,
-    BBB: 2,
-    CDA: 23,
-    SP: 4,
-    DENK: 3,
-    PvdD: 3,
-    FvD: 4,
-    SGP: 3,
-    CU: 2,
-    Volt: 3,
-    JA21: 12,
-    "50plus": 1,
+    "VVD": 16,
+    "NSC": 0,
+    "D66": 24,
+    "BBB": 3,
+    "CDA": 19,
+    "SP": 5,
+    "DENK": 3,
+    "PvdD": 2,
+    "FvD": 6,
+    "SGP": 3,
+    "CU": 3,
+    "Volt": 2,
+    "JA21": 8,
+    "50plus": 2
   },
-  ipsos: {
-    PVV: 26,
+  "ipsos": {
+    "PVV": 23,
     "GL-PvdA": 23,
-    D66: 22,
-    CDA: 20,
-    VVD: 16,
-    JA21: 12,
-    FvD: 5,
-    PvdD: 4,
-    BBB: 4,
-    SP: 4,
-    DENK: 3,
-    Volt: 3,
-    SGP: 3,
-    CU: 3,
-    "50plus": 2,
-    NSC: 0,
+    "VVD": 17,
+    "NSC": 1,
+    "D66": 23,
+    "BBB": 5,
+    "CDA": 19,
+    "SP": 4,
+    "DENK": 3,
+    "PvdD": 4,
+    "FvD": 6,
+    "SGP": 3,
+    "CU": 3,
+    "Volt": 2,
+    "JA21": 11,
+    "50plus": 3
   },
-  peil: {
-    PVV: 28,
-    "GL-PvdA": 24,
-    CDA: 24,
-    VVD: 16,
-    D66: 17,
-    JA21: 11,
-    SP: 4,
-    BBB: 4,
-    DENK: 4,
-    FvD: 6,
-    SGP: 3,
-    PvdD: 3,
-    CU: 3,
-    Volt: 2,
-    NSC: 0,
-    "50plus": 1,
+  "peil": {
+    "PVV": 23,
+    "GL-PvdA": 23,
+    "VVD": 22,
+    "NSC": 0,
+    "D66": 22,
+    "BBB": 4,
+    "CDA": 20,
+    "SP": 4,
+    "DENK": 4,
+    "PvdD": 3,
+    "FvD": 7,
+    "SGP": 3,
+    "CU": 2,
+    "Volt": 2,
+    "JA21": 9,
+    "50plus": 2
+  }
+};
+
+
+
+export const pollMetadata = {
+  "eenVandaag": {
+    "name": "EenVandaag",
+    "date": "28 oktober 2025",
+    "url": "https://eenvandaag.avrotros.nl/opiniepanel/uitslagen/d66-stijgt-8-zetels-in-laatste-zetelpeiling-voor-verkiezingen-pvv-daalt-5-zetels-161768"
   },
+  "ipsos": {
+    "name": "Ipsos I&O",
+    "date": "28 oktober 2025",
+    "url": "https://www.ipsos-publiek.nl/actueel/ipsos-io-zetelpeiling-vijf-partijen-dicht-bij-elkaar/"
+  },
+  "peil": {
+    "name": "Peil.nl",
+    "date": "28 oktober 2025",
+    "url": "https://maurice.nl/2025/10/28/slotpeiling-en-prognose-tk205/"
+  }
 };
 
 const parties = [
