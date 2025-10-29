@@ -198,7 +198,7 @@ class App extends Component {
             <a href="https://www.ipsos.com/nl-nl/hoe-werkt-een-exitpoll-tweede-kamerverkiezing-2025" target="_blank">
               de exitpoll van Ipsos I&amp;O
             </a>{" "}
-            van 29 oktober 2025, 21:00 uur. Zodra de volledige uitslagen van de
+            van 29 oktober 2025, 21:30 uur. Zodra de volledige uitslagen van de
             verkiezingen beschikbaar zijn, zal de data hieronder worden
             bijgewerkt.
           </p>
