@@ -94,6 +94,16 @@
   margin: 0 auto;
 }
 
+@media (min-width: 750px) {
+  .Finder .toggles-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .Finder .toggles-row > div {
+    width: 50%;
+  }
+}
+
 .Finder .toggles p {
  text-align: left;
 }
