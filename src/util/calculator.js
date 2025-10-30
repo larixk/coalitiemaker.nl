@@ -10,9 +10,9 @@ const cantBeSmaller = (coalition) =>
 const hasMajorityWith = (category, majority, coalition) =>
   coalition[category] >= majority;
 
-const isValidCoalition = (houseRequirements) => (coalition) =>
+const isValidCoalition = (houseRequirements, minSeats) => (coalition) =>
   doesNotContainInvalidParties(coalition) &&
-  (!houseRequirements.includes(2) || hasMajorityWith("seats", 75, coalition)) &&
+  (!houseRequirements.includes(2) || hasMajorityWith("seats", minSeats, coalition)) &&
   (!houseRequirements.includes(1) ||
     hasMajorityWith("eerste", 38, coalition)) &&
   cantBeSmaller(coalition) &&
@@ -26,7 +26,7 @@ const compare = (a, b) =>
   1000 * (b.seats / b.parties.length) -
   (a.eerste + 1000 * (a.seats / a.parties.length));
 
-export default (houseRequirements) => (parties) =>
+export default (houseRequirements, minSeats) => (parties) =>
   times(Math.pow(2, parties.length), (i) => ({
     hash: i.toString(2).padStart(parties.length, "0"),
     parties: i
@@ -44,5 +44,5 @@ export default (houseRequirements) => (parties) =>
         0
       ),
     }))
-    .filter(isValidCoalition(houseRequirements))
+    .filter(isValidCoalition(houseRequirements, minSeats))
     .sort(compare);

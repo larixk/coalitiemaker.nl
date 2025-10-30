@@ -14,10 +14,11 @@ class Finder extends Component {
       limit: 3,
       houseRequirements: [2],
       excludedParties: [],
+      minSeats: 76,
     };
   }
   render() {
-    const coalitions = calculator(this.state.houseRequirements)(
+    const coalitions = calculator(this.state.houseRequirements, this.state.minSeats)(
       this.props.parties
     )
       .filter((coalition) =>
@@ -31,33 +32,23 @@ class Finder extends Component {
       <div className="Finder">
         <h2>Automatisch mogelijke coalities berekenen</h2>
         <div className="toggles">
-          <p>
-            Selecteer alle partijen om mee te nemen en wij berekenen alle
-            mogelijke coalities met een meerderheid in Tweede en/of Eerste
-            Kamer:
-          </p>
-          {this.props.parties.map((party) => (
-            <button
-              key={party.name}
-              onClick={() => {
-                this.setState({
-                  excludedParties: this.state.excludedParties.includes(party)
-                    ? this.state.excludedParties.filter(
-                        (excludedParty) => excludedParty !== party
-                      )
-                    : this.state.excludedParties.concat([party]),
-                });
-              }}
-              className={
-                "toggle" +
-                (!this.state.excludedParties.includes(party)
-                  ? " toggle-active"
-                  : "")
-              }
-            >
-              {party.name}
-            </button>
-          ))}
+          <p>Minimaal aantal zetels in een coalitie:</p>
+          <button
+            onClick={() => this.setState({ minSeats: 76 })}
+            className={
+              "toggle" + (this.state.minSeats === 76 ? " toggle-active" : "")
+            }
+          >
+            76 Zetels
+          </button>
+          <button
+            onClick={() => this.setState({ minSeats: 75 })}
+            className={
+              "toggle" + (this.state.minSeats === 75 ? " toggle-active" : "")
+            }
+          >
+            75 Zetels
+          </button>
           <p>Maximaal aantal partijen in een coalitie:</p>
           <button
             onClick={() => this.setState({ limit: 3 })}
@@ -91,53 +82,38 @@ class Finder extends Component {
           >
             6 Partijen
           </button>
-          <p>Meerderheid in:</p>
-          <button
-            onClick={() =>
-              this.setState({
-                houseRequirements: this.state.houseRequirements.includes(2)
-                  ? this.state.houseRequirements.length === 2
-                    ? [1]
-                    : [2]
-                  : this.state.houseRequirements.concat([2]),
-              })
-            }
-            className={
-              "toggle" +
-              (this.state.houseRequirements.includes(2) ? " toggle-active" : "")
-            }
-          >
-            Tweede Kamer
-          </button>
-          <button
-            onClick={() =>
-              this.setState({
-                houseRequirements: this.state.houseRequirements.includes(1)
-                  ? this.state.houseRequirements.length === 2
-                    ? [2]
-                    : [1]
-                  : this.state.houseRequirements.concat([1]),
-              })
-            }
-            className={
-              "toggle" +
-              (this.state.houseRequirements.includes(1) ? " toggle-active" : "")
-            }
-          >
-            Eerste Kamer
-          </button>
+          <p>
+            Selecteer alle partijen om mee te nemen en wij berekenen alle
+            mogelijke coalities met een meerderheid in Tweede en/of Eerste
+            Kamer:
+          </p>
+          {this.props.parties.map((party) => (
+            <button
+              key={party.name}
+              onClick={() => {
+                this.setState({
+                  excludedParties: this.state.excludedParties.includes(party)
+                    ? this.state.excludedParties.filter(
+                        (excludedParty) => excludedParty !== party
+                      )
+                    : this.state.excludedParties.concat([party]),
+                });
+              }}
+              className={
+                "toggle" +
+                (!this.state.excludedParties.includes(party)
+                  ? " toggle-active"
+                  : "")
+              }
+            >
+              {party.name}
+            </button>
+          ))}
         </div>
         <h3>
           {coalitions.length} coalitie
           {coalitions.length === 1 ? "" : "s"}{" "}
-          {this.state.houseRequirements.length > 0 &&
-            `met een meerderheid in ${
-              this.state.houseRequirements.length > 1 ? `zowel ` : ``
-            }${this.state.houseRequirements.includes(2) ? `Tweede` : ``}${
-              this.state.houseRequirements.length > 1 ? ` als ` : ``
-            }${
-              this.state.houseRequirements.includes(1) ? `Eerste` : ``
-            } Kamer gevonden`}
+          
         </h3>
         <ul>
           {coalitions.map((coalition) => {
