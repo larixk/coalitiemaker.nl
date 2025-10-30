@@ -195,12 +195,11 @@ class App extends Component {
           </p>
           <p>
             Op dit moment op basis van{" "}
-            <a href="https://www.ipsos.com/nl-nl/hoe-werkt-een-exitpoll-tweede-kamerverkiezing-2025" target="_blank">
-              de exitpoll van Ipsos I&amp;O
+            <a href="https://app.nos.nl/nieuws/tk2025/" target="_blank">
+              de prognose van de NOS
             </a>{" "}
-            van 29 oktober 2025, 21:30 uur. Zodra de volledige uitslagen van de
-            verkiezingen beschikbaar zijn, zal de data hieronder worden
-            bijgewerkt.
+            van 30 oktober 2025, 09:10 uur. Zodra de definitieve prognose
+            beschikbaar is, zal de data hieronder worden bijgewerkt.
           </p>
         </div>
         <div className="seats">
