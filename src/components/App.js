@@ -194,12 +194,23 @@ class App extends Component {
             inzichtelijk.
           </p>
           <p>
-            Op dit moment op basis van{" "}
-            <a href="https://app.nos.nl/nieuws/tk2025/" target="_blank">
-              de prognose van de NOS
-            </a>{" "}
-            van 30 oktober 2025, 09:10 uur. Zodra de definitieve prognose
-            beschikbaar is, zal de data hieronder worden bijgewerkt.
+            Deze coalitievergelijker is gebaseerd op{" "}
+            <a
+              href="https://www.kiesraad.nl/verkiezingen/tweede-kamer/uitslagen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              de officiële uitslag van de Tweede Kamerverkiezingen 2025
+            </a>
+            , zoals vastgesteld door de Kiesraad op 7 november 2025.
+          </p>
+          <p className="">
+            Je kunt zelf proberen welke partijen een meerderheid kunnen vormen
+            of{" "}
+            <a href="#automatisch">automatisch mogelijke coalities berekenen</a>{" "}
+            op basis van het minimaal aantal zetels voor een coalitie, het
+            maximaal aantal partijen en mogelijke partijen die je wilt
+            uitsluiten.
           </p>
         </div>
         <div className="seats">

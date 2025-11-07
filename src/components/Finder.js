@@ -31,7 +31,7 @@ class Finder extends Component {
     let previousCoalitionSize = null;
     return (
       <div className="Finder">
-        <h2>Automatisch mogelijke coalities berekenen</h2>
+        <h2 id="automatisch">Automatisch mogelijke coalities berekenen</h2>
         <div className="toggles">
           <div className="toggles-row">
             <div>

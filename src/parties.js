@@ -89,12 +89,6 @@ const parties = [
     seats: 1,
     color: "#4e2277",
   },
-  {
-    name: "NSC",
-    eerste: 0,
-    seats: 0,
-    color: "#13123b",
-  },
 ];
 
 if (parties.reduce((a, b) => a + b.seats, 0) !== 150) {
