@@ -2,8 +2,14 @@ const parties = [
   {
     name: "PVV",
     eerste: 4,
-    seats: 26,
+    seats: 19,
     color: "#2e89b5",
+  },
+  {
+    name: "Groep Markuszower",
+    eerste: 0,
+    seats: 7,
+    color: "#0e6995",
   },
   {
     name: "D66",
