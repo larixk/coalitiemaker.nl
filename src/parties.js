@@ -24,7 +24,7 @@ const parties = [
     color: "#ff7600",
   },
   {
-    name: "GL-PvdA",
+    name: "PRO",
     eerste: 14,
     seats: 20,
     color: "#e2001a",
