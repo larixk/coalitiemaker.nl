@@ -149,30 +149,23 @@ svg {
 }
 
 .party-count {
-  width: 3.5em;
+  width: 3em;
+  padding-right: 10px;
   text-align: right;
+  font-size: 0.8em;
   font-variant-numeric: tabular-nums;
+  opacity: 0.5;
 }
 
+/* Same box model and font size as .party so columns line up exactly */
 .party-header {
   min-width: 240px;
-  padding: 0 0 .5em;
-  margin-bottom: .5em;
-  border-bottom: 1px solid #eee;
+  padding: 0 0 0.25em;
+  margin-bottom: 0.25em;
   border: 1px solid transparent;
   border-bottom-color: #eee;
-  font-size: .8em;
-  opacity: .5;
-}
-
-.party-header .party-name {
-  padding-left: 30px;
-}
-
-.party .party-count {
-  opacity: .5;
-  font-size: .8em;
-  padding-right: 10px;
+  font-size: 1.25em;
+  line-height: 1em;
 }
 
 .party-seats {
