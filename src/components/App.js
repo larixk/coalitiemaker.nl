@@ -257,7 +257,7 @@ class App extends Component {
             ))}
           </div>
         </div>
-        <div className="parties">
+        <div className="parties" style={{ "--party-rows": parties.length }}>
           <div className="party-group party-group-inactive">
             {this.renderPartyList({
               parties: inactiveParties,

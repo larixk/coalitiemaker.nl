@@ -111,6 +111,24 @@ svg {
   width: 100%;
 }
 
+/* Desktop: two equal, fixed-size columns that never resize with the content */
+@media (min-width: 701px) {
+  .parties {
+    align-items: stretch;
+  }
+  .party-group {
+    flex: 0 0 50%;
+    min-width: 0;
+    /* Always as tall as the full party list, so selecting never resizes it */
+    min-height: calc((var(--party-rows) + 1) * 2.02em + 4em + 8px);
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .party-group + .party-group {
+    margin-left: -1px; /* collapse the shared border */
+  }
+}
+
 .party-group-empty {
   opacity: 0.2;
 }
@@ -157,6 +175,9 @@ svg {
 
 .party-name {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .party-count {
