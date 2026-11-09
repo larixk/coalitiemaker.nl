@@ -14,13 +14,12 @@ class Finder extends Component {
       limit: 4,
       houseRequirements: [2],
       excludedParties: [],
-      minSeats: 76,
     };
   }
   render() {
     const coalitions = calculator(
       this.state.houseRequirements,
-      this.state.minSeats
+      this.state.limit
     )(this.props.parties)
       .filter((coalition) =>
         coalition.parties.every(
@@ -35,25 +34,33 @@ class Finder extends Component {
         <div className="toggles">
           <div className="toggles-row">
             <div>
-              <p>Minimaal aantal zetels in een coalitie:</p>
-              <button
-                onClick={() => this.setState({ minSeats: 76 })}
-                className={
-                  "toggle" +
-                  (this.state.minSeats === 76 ? " toggle-active" : "")
-                }
-              >
-                76 Zetels
-              </button>
-              <button
-                onClick={() => this.setState({ minSeats: 75 })}
-                className={
-                  "toggle" +
-                  (this.state.minSeats === 75 ? " toggle-active" : "")
-                }
-              >
-                75 Zetels
-              </button>
+              <p>Meerderheid in:</p>
+              {[
+                [2, "Tweede Kamer"],
+                [1, "Eerste Kamer"],
+              ].map(([house, label]) => (
+                <button
+                  key={house}
+                  onClick={() => {
+                    const current = this.state.houseRequirements;
+                    this.setState({
+                      houseRequirements: current.includes(house)
+                        ? current.length === 2
+                          ? current.filter((h) => h !== house)
+                          : current
+                        : current.concat([house]),
+                    });
+                  }}
+                  className={
+                    "toggle" +
+                    (this.state.houseRequirements.includes(house)
+                      ? " toggle-active"
+                      : "")
+                  }
+                >
+                  {label}
+                </button>
+              ))}
             </div>
             <div>
               <p>Maximaal aantal partijen in een coalitie:</p>

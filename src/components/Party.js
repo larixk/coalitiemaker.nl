@@ -5,6 +5,7 @@ export default (
     party,
     active,
     hovered,
+    table,
     onMouseEnter,
     onMouseLeave,
     onToggle
@@ -17,9 +18,17 @@ export default (
     onMouseLeave={onMouseLeave}
   >
     <span className="party-color" style={{ backgroundColor: party.color }} />
-    {party.name}
-    <span className="party-seats">
-      {party.seats}
-    </span>
+    {table ? (
+      <>
+        <span className="party-name">{party.name}</span>
+        <span className="party-count">{party.seats || "–"}</span>
+        <span className="party-count">{party.eerste || "–"}</span>
+      </>
+    ) : (
+      <>
+        {party.name}
+        <span className="party-seats">{party.seats}</span>
+      </>
+    )}
   </a>
 );

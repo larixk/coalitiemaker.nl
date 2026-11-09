@@ -20,33 +20,36 @@ h1 {
 svg {
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
   margin: 0 auto 40px;
 }
 
-.parties,
-.seats {
-  display: flex;
-  align-items: flex-start;
+/* One 2x2 grid: seat grids on top, party lists below, available | selected */
+.parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   max-width: 660px;
-  margin: 0 auto;
+  margin: 2em auto;
+  border: 1px solid #eee;
+  background: #fff;
 }
 
-.seats {
-  border: 1px solid #eee;
-  padding-bottom: 1em;
+.parties > :nth-child(even) {
+  border-left: 1px solid #eee; /* the single vertical divider */
+}
+
+.party-cell {
+  min-width: 0;
+  padding: 0 2em 2em;
 }
 
 .seats-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  width: 50%;
-  padding: 2em 2em;
-}
-
-.seats-group + .seats-group {
+  align-content: flex-start;
   justify-content: flex-start;
+  padding: 2em 2em 1.5em;
 }
 
 .seat {
@@ -60,7 +63,7 @@ svg {
   background: transparent;
 }
 
-.seats-group-active .seat:nth-child(-n+75) {
+.seats-group-active .seat:nth-child(-n+76) {
   background: #eee;
 }
 
@@ -94,18 +97,6 @@ svg {
   animation: none;
 }
 
-.party-group {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #eee;
-  padding: 2em;
-  margin: -2em 1em 2em;
-  background: #fff;
-}
-
 .party-group-empty {
   opacity: 0.2;
 }
@@ -116,7 +107,8 @@ svg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: .25em 0;
-  min-width: 182px;
+  min-width: 0;
+  width: 100%;
   font-size: 1.25em;
 }
 
@@ -136,6 +128,62 @@ svg {
   margin: -2px 10px 0;
   border-radius: 10%;
   position: relative;
+}
+
+.party,
+.party-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Line the dots up with the seat squares above, while the hover outline
+   still gets breathing room on both sides */
+.party-cell .party-color {
+  margin-left: 0;
+}
+
+.party-cell .party {
+  width: auto;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.party-header {
+  align-items: baseline;
+}
+
+.party-header .party-name {
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+
+.party-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.party-count {
+  width: 2.5em;
+  padding-right: 8px;
+  text-align: right;
+  font-size: 0.8em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+}
+
+/* Same box model and font size as .party so columns line up exactly */
+.party-header {
+  width: 100%;
+  padding: 0 0 0.25em;
+  margin-bottom: 0.25em;
+  border: 1px solid transparent;
+  border-bottom-color: #eee;
+  font-size: 1.25em;
+  line-height: 1em;
 }
 
 .party-seats {
@@ -189,35 +237,33 @@ svg {
   .App {
     padding: 0;
   }
-  .seats {
-    padding: 0;
+  .parties {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     border: none;
-    box-shadow: none;
-    flex-direction: column;
+    margin: 0 auto;
+  }
+  .parties > :nth-child(even) {
+    border-left: none;
   }
   .seats-group {
-    width: auto;
-    padding: .5em;
-    justify-content: center;
-  }
-  .seats-group + .seats-group {
+    padding: 1em 20px 0.5em;
     justify-content: center;
   }
   .seats-group-inactive {
     display: none;
   }
-  .parties {
-    flex-direction: column-reverse;
-    align-items: center;
+  .seats-group-active {
+    order: 1;
   }
-  .party-group {
-    width: calc(100% - 20px);
-    margin: 0;
-    padding: 20px 0;
-    border: none;
-    box-shadow: none;
+  .party-cell {
+    padding: 20px;
   }
-  .party-group-inactive {
+  .party-cell-active {
+    order: 2;
+  }
+  .party-cell-inactive {
+    order: 3;
     border-top: 1px solid #eee;
   }
   .party-total {
@@ -231,7 +277,8 @@ svg {
     padding: 10px;
   }
   .party-group-list {
-    width: 50%;
+    width: 80%;
+    max-width: 320px;
     margin: 0 auto;
   }
 }

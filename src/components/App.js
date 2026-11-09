@@ -12,6 +12,8 @@ import times from "../util/times";
 class App extends Component {
   constructor() {
     super();
+    // Stable reference so the memoized Finder doesn't re-render on hover.
+    this.handleClickFinder = this.handleClickFinder.bind(this);
     const hashParties = window.location.hash
       ? decodeURI(window.location.hash.substr(1)).split("+")
       : [];
@@ -55,8 +57,18 @@ class App extends Component {
   renderPartyList({ parties, isActive }) {
     return (
       <div className="party-group-list">
+        <div className="party-header">
+          <span className="party-name" />
+          <span className="party-count" title="Tweede Kamer">
+            2<sup>e</sup>
+          </span>
+          <span className="party-count" title="Eerste Kamer">
+            1<sup>e</sup>
+          </span>
+        </div>
         {parties.map((party) => (
           <Party
+            table
             active={isActive}
             party={party}
             key={party.name}
@@ -194,7 +206,9 @@ class App extends Component {
             inzichtelijk.
           </p>
           <p>
-            Deze coalitievergelijker is gebaseerd op{" "}
+            Deze coalitievergelijker gebruikt de huidige fractiegroottes in de
+            Tweede en Eerste Kamer, zoals bijgewerkt op 9 november 2026. De
+            Tweede Kamer-zetels zijn gebaseerd op{" "}
             <a
               href="https://www.kiesraad.nl/verkiezingen/tweede-kamer/uitslagen"
               target="_blank"
@@ -202,7 +216,8 @@ class App extends Component {
             >
               de officiële uitslag van de Tweede Kamerverkiezingen 2025
             </a>
-            , zoals vastgesteld door de Kiesraad op 7 november 2025.
+            , zoals vastgesteld door de Kiesraad op 7 november 2025, en
+            aangepast voor afsplitsingen sinds die verkiezingen.
           </p>
           <p className="">
             Je kunt zelf proberen welke partijen een meerderheid kunnen vormen
@@ -213,7 +228,7 @@ class App extends Component {
             uitsluiten.
           </p>
         </div>
-        <div className="seats">
+        <div className="parties">
           <div className="seats-group seats-group-inactive">
             {this.renderSeats({ parties: inactiveParties })}
             {times(
@@ -233,40 +248,36 @@ class App extends Component {
           </div>
           <div className="seats-group seats-group-active">
             {this.renderSeats({ parties: active })}
-            {times(75 - activeSum, (i) => (
+            {times(76 - activeSum, (i) => (
               <Seat
-                key={"required-" + (75 - activeSum - i)}
+                key={"required-" + (76 - activeSum - i)}
                 backgroundColor="#eee"
                 disabled={true}
               />
             ))}
           </div>
-        </div>
-        <div className="parties">
-          <div className="party-group party-group-inactive">
+          <div className="party-cell party-cell-inactive">
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
             })}
           </div>
-          <div className="party-group party-group-active">
+          <div className="party-cell party-cell-active">
+            {this.renderPartyList({
+              parties: active,
+              isActive: true,
+            })}
             {active.length ? (
-              <div>
-                {this.renderPartyList({
-                  parties: active,
-                  isActive: true,
-                })}
-                <Totals
-                  eersteKamerCount={active.reduce(
-                    (seats, party) => seats + party.eerste,
-                    0
-                  )}
-                  tweedeKamerCount={active.reduce(
-                    (seats, party) => seats + party.seats,
-                    0
-                  )}
-                />
-              </div>
+              <Totals
+                eersteKamerCount={active.reduce(
+                  (seats, party) => seats + party.eerste,
+                  0
+                )}
+                tweedeKamerCount={active.reduce(
+                  (seats, party) => seats + party.seats,
+                  0
+                )}
+              />
             ) : (
               <span className="party-group-empty">
                 geen partijen geselecteerd
@@ -275,7 +286,7 @@ class App extends Component {
           </div>
         </div>
         <Finder
-          onClick={(parties) => this.handleClickFinder(parties)}
+          onClick={this.handleClickFinder}
           parties={parties}
         />
         <Footer />
