@@ -20,7 +20,8 @@ class Finder extends Component {
   render() {
     const coalitions = calculator(
       this.state.houseRequirements,
-      this.state.minSeats
+      this.state.minSeats,
+      this.state.limit
     )(this.props.parties)
       .filter((coalition) =>
         coalition.parties.every(

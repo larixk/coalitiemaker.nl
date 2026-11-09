@@ -101,6 +101,42 @@ const parties = [
     seats: 1,
     color: "#4e2277",
   },
+  {
+    name: "OPNL",
+    eerste: 1,
+    seats: 0,
+    color: "#c2a14d",
+  },
+  {
+    name: "Fractie Visseren-Hamakers",
+    eerste: 1,
+    seats: 0,
+    color: "#4f8f5b",
+  },
+  {
+    name: "Fractie Beukering",
+    eerste: 1,
+    seats: 0,
+    color: "#8a6fb0",
+  },
+  {
+    name: "Fractie Walenkamp",
+    eerste: 1,
+    seats: 0,
+    color: "#b07a5b",
+  },
+  {
+    name: "Fractie Van de Sanden",
+    eerste: 1,
+    seats: 0,
+    color: "#5b8fb0",
+  },
+  {
+    name: "Fractie Van Gasteren",
+    eerste: 1,
+    seats: 0,
+    color: "#9a9a6a",
+  },
 ];
 
 if (parties.reduce((a, b) => a + b.seats, 0) !== 150) {
