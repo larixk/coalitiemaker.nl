@@ -1,25 +1,27 @@
 const doesNotContainInvalidParties = (coalition) =>
   coalition.parties.every((party) => !party.invalid);
 
+const MAJORITY = { seats: 76, eerste: 38 };
+
 const hasMajorityWith = (category, majority, coalition) =>
   coalition[category] >= majority;
 
 // Every party must be needed: without it, a house that the coalition has to
 // win (per the selected requirements) would lose its majority.
-const cantBeSmaller = (houseRequirements, minSeats) => (coalition) =>
+const cantBeSmaller = (houseRequirements) => (coalition) =>
   coalition.parties.every(
     (party) =>
       (houseRequirements.includes(2) &&
-        coalition.seats - party.seats < minSeats) ||
-      (houseRequirements.includes(1) && coalition.eerste - party.eerste < 38)
+        coalition.seats - party.seats < MAJORITY.seats) ||
+      (houseRequirements.includes(1) && coalition.eerste - party.eerste < MAJORITY.eerste)
   );
 
-const isValidCoalition = (houseRequirements, minSeats) => (coalition) =>
+const isValidCoalition = (houseRequirements) => (coalition) =>
   doesNotContainInvalidParties(coalition) &&
-  (!houseRequirements.includes(2) || hasMajorityWith("seats", minSeats, coalition)) &&
+  (!houseRequirements.includes(2) || hasMajorityWith("seats", MAJORITY.seats, coalition)) &&
   (!houseRequirements.includes(1) ||
-    hasMajorityWith("eerste", 38, coalition)) &&
-  cantBeSmaller(houseRequirements, minSeats)(coalition);
+    hasMajorityWith("eerste", MAJORITY.eerste, coalition)) &&
+  cantBeSmaller(houseRequirements)(coalition);
 
 // const compare = (a, b) =>
 //   a.parties.length * 1000 + a.seats - (b.parties.length * 1000 + b.seats);
@@ -43,7 +45,7 @@ const combinations = (parties, limit) => {
   return result;
 };
 
-export default (houseRequirements, minSeats, limit = Infinity) => (parties) =>
+export default (houseRequirements, limit = Infinity) => (parties) =>
   combinations(parties, limit)
     .map((combination) => ({
       hash: combination.map((party) => party.name).join("+"),
@@ -57,5 +59,5 @@ export default (houseRequirements, minSeats, limit = Infinity) => (parties) =>
         0
       ),
     }))
-    .filter(isValidCoalition(houseRequirements, minSeats))
+    .filter(isValidCoalition(houseRequirements))
     .sort(compare);
