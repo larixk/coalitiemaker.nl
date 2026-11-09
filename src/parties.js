@@ -13,13 +13,13 @@ const parties = [
   },
   {
     name: "D66",
-    eerste: 5,
+    eerste: 7,
     seats: 26,
     color: "#a7e5c0",
   },
   {
     name: "VVD",
-    eerste: 10,
+    eerste: 9,
     seats: 22,
     color: "#ff7600",
   },
@@ -37,20 +37,20 @@ const parties = [
   },
   {
     name: "JA21",
-    eerste: 3,
+    eerste: 2,
     seats: 9,
     color: "#242B57",
   },
   {
     name: "FvD",
-    eerste: 2,
+    eerste: 3,
     seats: 7,
     color: "#651817",
   },
   {
     name: "BBB",
-    eerste: 16,
-    seats: 4,
+    eerste: 11,
+    seats: 3,
     color: "#94c224",
   },
   {
@@ -73,7 +73,7 @@ const parties = [
   },
   {
     name: "PvdD",
-    eerste: 3,
+    eerste: 2,
     seats: 3,
     color: "#006b2d",
   },
@@ -88,6 +88,12 @@ const parties = [
     eerste: 1,
     seats: 2,
     color: "#500051",
+  },
+  {
+    name: "Groep Keijzer",
+    eerste: 0,
+    seats: 1,
+    color: "#6b7f2a",
   },
   {
     name: "Volt",
