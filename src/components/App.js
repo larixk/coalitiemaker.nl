@@ -58,9 +58,13 @@ class App extends Component {
     return (
       <div className="party-group-list">
         <div className="party-header" aria-hidden="true">
-          <span className="party-name">Partij</span>
-          <span className="party-count">Tweede</span>
-          <span className="party-count">Eerste</span>
+          <span className="party-name" />
+          <span className="party-count" title="Tweede Kamer">
+            2<sup>e</sup>
+          </span>
+          <span className="party-count" title="Eerste Kamer">
+            1<sup>e</sup>
+          </span>
         </div>
         {parties.map((party) => (
           <Party
