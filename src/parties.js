@@ -42,7 +42,7 @@ const parties = [
     color: "#242B57",
   },
   {
-    name: "FvD",
+    name: "FVD",
     eerste: 3,
     seats: 7,
     color: "#651817",
@@ -78,19 +78,19 @@ const parties = [
     color: "#006b2d",
   },
   {
-    name: "CU",
+    name: "ChristenUnie",
     eerste: 3,
     seats: 3,
     color: "#26a2ec",
   },
   {
-    name: "50plus",
+    name: "50PLUS",
     eerste: 1,
     seats: 2,
     color: "#500051",
   },
   {
-    name: "Groep Keijzer",
+    name: "Lid Keijzer",
     eerste: 0,
     seats: 1,
     color: "#6b7f2a",
