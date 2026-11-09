@@ -54,11 +54,11 @@ class App extends Component {
     );
   }
 
-  renderPartyList({ parties, isActive, title }) {
+  renderPartyList({ parties, isActive }) {
     return (
       <div className="party-group-list">
         <div className="party-header">
-          <span className="party-name">{title}</span>
+          <span className="party-name" />
           <span className="party-count" title="Tweede Kamer">
             2<sup>e</sup>
           </span>
@@ -260,14 +260,12 @@ class App extends Component {
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
-              title: "Beschikbaar",
             })}
           </div>
           <div className="party-cell party-cell-active">
             {this.renderPartyList({
               parties: active,
               isActive: true,
-              title: "Geselecteerd",
             })}
             {active.length ? (
               <Totals
