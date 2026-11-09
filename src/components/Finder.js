@@ -34,6 +34,35 @@ class Finder extends Component {
       <div className="Finder">
         <h2 id="automatisch">Automatisch mogelijke coalities berekenen</h2>
         <div className="toggles">
+          <div>
+            <p>Meerderheid in:</p>
+            {[
+              [2, "Tweede Kamer"],
+              [1, "Eerste Kamer"],
+            ].map(([house, label]) => (
+              <button
+                key={house}
+                onClick={() => {
+                  const current = this.state.houseRequirements;
+                  this.setState({
+                    houseRequirements: current.includes(house)
+                      ? current.length === 2
+                        ? current.filter((h) => h !== house)
+                        : current
+                      : current.concat([house]),
+                  });
+                }}
+                className={
+                  "toggle" +
+                  (this.state.houseRequirements.includes(house)
+                    ? " toggle-active"
+                    : "")
+                }
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <div className="toggles-row">
             <div>
               <p>Minimaal aantal zetels in een coalitie:</p>
@@ -55,35 +84,6 @@ class Finder extends Component {
               >
                 75 Zetels
               </button>
-            </div>
-            <div>
-              <p>Meerderheid in:</p>
-              {[
-                [2, "Tweede Kamer"],
-                [1, "Eerste Kamer"],
-              ].map(([house, label]) => (
-                <button
-                  key={house}
-                  onClick={() => {
-                    const current = this.state.houseRequirements;
-                    this.setState({
-                      houseRequirements: current.includes(house)
-                        ? current.length === 2
-                          ? current.filter((h) => h !== house)
-                          : current
-                        : current.concat([house]),
-                    });
-                  }}
-                  className={
-                    "toggle" +
-                    (this.state.houseRequirements.includes(house)
-                      ? " toggle-active"
-                      : "")
-                  }
-                >
-                  {label}
-                </button>
-              ))}
             </div>
             <div>
               <p>Maximaal aantal partijen in een coalitie:</p>
