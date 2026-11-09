@@ -111,6 +111,15 @@ svg {
   width: 100%;
 }
 
+.party-group-title {
+  width: 100%;
+  margin: 0 0 1.25em;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+}
+
 /* Desktop: two equal, fixed-size columns that never resize with the content */
 @media (min-width: 701px) {
   .parties {
@@ -120,7 +129,7 @@ svg {
     flex: 0 0 50%;
     min-width: 0;
     /* Always as tall as the full party list, so selecting never resizes it */
-    min-height: calc((var(--party-rows) + 1) * 2.02em + 4em + 8px);
+    min-height: calc((var(--party-rows) + 1) * 2.02em + 6.5em + 8px);
     justify-content: flex-start;
     align-items: stretch;
   }

@@ -259,12 +259,14 @@ class App extends Component {
         </div>
         <div className="parties" style={{ "--party-rows": parties.length }}>
           <div className="party-group party-group-inactive">
+            <h3 className="party-group-title">Beschikbaar</h3>
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
             })}
           </div>
           <div className="party-group party-group-active">
+            <h3 className="party-group-title">Geselecteerd</h3>
             {active.length ? (
               <div>
                 {this.renderPartyList({
