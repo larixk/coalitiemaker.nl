@@ -57,8 +57,14 @@ class App extends Component {
   renderPartyList({ parties, isActive }) {
     return (
       <div className="party-group-list">
+        <div className="party-header" aria-hidden="true">
+          <span className="party-name">Partij</span>
+          <span className="party-count">Tweede</span>
+          <span className="party-count">Eerste</span>
+        </div>
         {parties.map((party) => (
           <Party
+            table
             active={isActive}
             party={party}
             key={party.name}

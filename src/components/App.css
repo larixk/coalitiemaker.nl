@@ -116,7 +116,7 @@ svg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: .25em 0;
-  min-width: 182px;
+  min-width: 240px;
   font-size: 1.25em;
 }
 
@@ -136,6 +136,43 @@ svg {
   margin: -2px 10px 0;
   border-radius: 10%;
   position: relative;
+}
+
+.party,
+.party-header {
+  display: flex;
+  align-items: center;
+}
+
+.party-name {
+  flex: 1;
+}
+
+.party-count {
+  width: 3.5em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.party-header {
+  min-width: 240px;
+  padding: 0 0 .5em;
+  margin-bottom: .5em;
+  border-bottom: 1px solid #eee;
+  border: 1px solid transparent;
+  border-bottom-color: #eee;
+  font-size: .8em;
+  opacity: .5;
+}
+
+.party-header .party-name {
+  padding-left: 30px;
+}
+
+.party .party-count {
+  opacity: .5;
+  font-size: .8em;
+  padding-right: 10px;
 }
 
 .party-seats {
@@ -231,7 +268,8 @@ svg {
     padding: 10px;
   }
   .party-group-list {
-    width: 50%;
+    width: 80%;
+    max-width: 320px;
     margin: 0 auto;
   }
 }
