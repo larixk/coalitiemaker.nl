@@ -168,9 +168,18 @@ svg {
   align-items: center;
 }
 
-/* Line the dots up with the seat squares above */
+/* Line the dots up with the seat squares above, while the hover outline
+   still gets breathing room on both sides */
 .party-group .party-color {
   margin-left: 0;
+}
+
+.party-group .party {
+  width: auto;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .party-name {
