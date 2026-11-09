@@ -94,21 +94,12 @@ svg {
   border: 1px solid #eee;
   box-sizing: border-box;
   padding: 2em;
-  margin: -2em 0 2em;
+  margin: 2em 0;
   background: #fff;
 }
 
 .party-group-list {
   width: 100%;
-}
-
-.party-group-title {
-  width: 100%;
-  margin: 0 0 1.25em;
-  font-size: 1em;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: left;
 }
 
 /* Desktop: two equal, fixed-size columns that never resize with the content */
@@ -120,7 +111,7 @@ svg {
     flex: 0 0 50%;
     min-width: 0;
     /* Tall enough for the fullest state (every party + seat grid + totals), so selecting never resizes it */
-    min-height: calc((var(--party-rows) + 1) * 2.02em + 6.5em + 26em + 8px);
+    min-height: calc((var(--party-rows) + 1) * 2.02em + 4em + 26em + 8px);
     justify-content: flex-start;
     align-items: stretch;
   }
@@ -180,6 +171,15 @@ svg {
   margin-right: -10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.party-header {
+  align-items: baseline;
+}
+
+.party-header .party-name {
+  font-size: 0.8em;
+  opacity: 0.5;
 }
 
 .party-name {

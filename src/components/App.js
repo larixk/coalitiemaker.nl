@@ -54,11 +54,11 @@ class App extends Component {
     );
   }
 
-  renderPartyList({ parties, isActive }) {
+  renderPartyList({ parties, isActive, title }) {
     return (
       <div className="party-group-list">
-        <div className="party-header" aria-hidden="true">
-          <span className="party-name" />
+        <div className="party-header">
+          <span className="party-name">{title}</span>
           <span className="party-count" title="Tweede Kamer">
             2<sup>e</sup>
           </span>
@@ -230,7 +230,6 @@ class App extends Component {
         </div>
         <div className="parties" style={{ "--party-rows": parties.length }}>
           <div className="party-group party-group-inactive">
-            <h3 className="party-group-title">Beschikbaar</h3>
             <div className="seats-group seats-group-inactive">
               {this.renderSeats({ parties: inactiveParties })}
               {times(
@@ -251,10 +250,10 @@ class App extends Component {
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
+              title: "Beschikbaar",
             })}
           </div>
           <div className="party-group party-group-active">
-            <h3 className="party-group-title">Geselecteerd</h3>
             <div className="seats-group seats-group-active">
               {this.renderSeats({ parties: active })}
               {times(76 - activeSum, (i) => (
@@ -265,23 +264,22 @@ class App extends Component {
                 />
               ))}
             </div>
+            {this.renderPartyList({
+              parties: active,
+              isActive: true,
+              title: "Geselecteerd",
+            })}
             {active.length ? (
-              <div>
-                {this.renderPartyList({
-                  parties: active,
-                  isActive: true,
-                })}
-                <Totals
-                  eersteKamerCount={active.reduce(
-                    (seats, party) => seats + party.eerste,
-                    0
-                  )}
-                  tweedeKamerCount={active.reduce(
-                    (seats, party) => seats + party.seats,
-                    0
-                  )}
-                />
-              </div>
+              <Totals
+                eersteKamerCount={active.reduce(
+                  (seats, party) => seats + party.eerste,
+                  0
+                )}
+                tweedeKamerCount={active.reduce(
+                  (seats, party) => seats + party.seats,
+                  0
+                )}
+              />
             ) : (
               <span className="party-group-empty">
                 geen partijen geselecteerd
