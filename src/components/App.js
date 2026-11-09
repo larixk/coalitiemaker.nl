@@ -194,7 +194,9 @@ class App extends Component {
             inzichtelijk.
           </p>
           <p>
-            Deze coalitievergelijker is gebaseerd op{" "}
+            Deze coalitievergelijker gebruikt de huidige fractiegroottes in de
+            Tweede en Eerste Kamer, zoals bijgewerkt op 9 november 2026. De
+            Tweede Kamer-zetels zijn gebaseerd op{" "}
             <a
               href="https://www.kiesraad.nl/verkiezingen/tweede-kamer/uitslagen"
               target="_blank"
@@ -202,7 +204,8 @@ class App extends Component {
             >
               de officiële uitslag van de Tweede Kamerverkiezingen 2025
             </a>
-            , zoals vastgesteld door de Kiesraad op 7 november 2025.
+            , zoals vastgesteld door de Kiesraad op 7 november 2025, en
+            aangepast voor afsplitsingen sinds die verkiezingen.
           </p>
           <p className="">
             Je kunt zelf proberen welke partijen een meerderheid kunnen vormen
