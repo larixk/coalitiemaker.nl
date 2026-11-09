@@ -60,7 +60,7 @@ svg {
   background: transparent;
 }
 
-.seats-group-active .seat:nth-child(-n+75) {
+.seats-group-active .seat:nth-child(-n+76) {
   background: #eee;
 }
 

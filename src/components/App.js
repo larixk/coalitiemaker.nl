@@ -248,9 +248,9 @@ class App extends Component {
           </div>
           <div className="seats-group seats-group-active">
             {this.renderSeats({ parties: active })}
-            {times(75 - activeSum, (i) => (
+            {times(76 - activeSum, (i) => (
               <Seat
-                key={"required-" + (75 - activeSum - i)}
+                key={"required-" + (76 - activeSum - i)}
                 backgroundColor="#eee"
                 disabled={true}
               />
