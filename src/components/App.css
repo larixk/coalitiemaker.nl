@@ -101,9 +101,14 @@ svg {
   justify-content: center;
   align-items: center;
   border: 1px solid #eee;
+  box-sizing: border-box;
   padding: 2em;
-  margin: -2em 1em 2em;
+  margin: -2em 0 2em;
   background: #fff;
+}
+
+.party-group-list {
+  width: 100%;
 }
 
 .party-group-empty {
@@ -116,7 +121,8 @@ svg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: .25em 0;
-  min-width: 240px;
+  min-width: 0;
+  width: 100%;
   font-size: 1.25em;
 }
 
@@ -144,13 +150,18 @@ svg {
   align-items: center;
 }
 
+/* Line the dots up with the seat squares above */
+.party-group .party-color {
+  margin-left: 0;
+}
+
 .party-name {
   flex: 1;
 }
 
 .party-count {
-  width: 3em;
-  padding-right: 10px;
+  width: 2.5em;
+  padding-right: 8px;
   text-align: right;
   font-size: 0.8em;
   font-variant-numeric: tabular-nums;
@@ -159,7 +170,7 @@ svg {
 
 /* Same box model and font size as .party so columns line up exactly */
 .party-header {
-  min-width: 240px;
+  width: 100%;
   padding: 0 0 0.25em;
   margin-bottom: 0.25em;
   border: 1px solid transparent;
