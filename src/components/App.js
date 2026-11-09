@@ -228,42 +228,42 @@ class App extends Component {
             uitsluiten.
           </p>
         </div>
-        <div className="parties" style={{ "--party-rows": parties.length }}>
-          <div className="party-group party-group-inactive">
-            <div className="seats-group seats-group-inactive">
-              {this.renderSeats({ parties: inactiveParties })}
-              {times(
-                activeSum -
-                  (this.state.hovered &&
-                  !this.state.active.includes(this.state.hovered)
-                    ? this.state.hovered.seats
-                    : 0),
-                (i) => (
-                  <Seat
-                    key={"required-" + i}
-                    backgroundColor="#eee"
-                    disabled={true}
-                  />
-                )
-              )}
-            </div>
+        <div className="parties">
+          <div className="seats-group seats-group-inactive">
+            {this.renderSeats({ parties: inactiveParties })}
+            {times(
+              activeSum -
+                (this.state.hovered &&
+                !this.state.active.includes(this.state.hovered)
+                  ? this.state.hovered.seats
+                  : 0),
+              (i) => (
+                <Seat
+                  key={"required-" + i}
+                  backgroundColor="#eee"
+                  disabled={true}
+                />
+              )
+            )}
+          </div>
+          <div className="seats-group seats-group-active">
+            {this.renderSeats({ parties: active })}
+            {times(76 - activeSum, (i) => (
+              <Seat
+                key={"required-" + (76 - activeSum - i)}
+                backgroundColor="#eee"
+                disabled={true}
+              />
+            ))}
+          </div>
+          <div className="party-cell party-cell-inactive">
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
               title: "Beschikbaar",
             })}
           </div>
-          <div className="party-group party-group-active">
-            <div className="seats-group seats-group-active">
-              {this.renderSeats({ parties: active })}
-              {times(76 - activeSum, (i) => (
-                <Seat
-                  key={"required-" + (76 - activeSum - i)}
-                  backgroundColor="#eee"
-                  disabled={true}
-                />
-              ))}
-            </div>
+          <div className="party-cell party-cell-active">
             {this.renderPartyList({
               parties: active,
               isActive: true,

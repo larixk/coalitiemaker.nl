@@ -24,20 +24,32 @@ svg {
   margin: 0 auto 40px;
 }
 
+/* One 2x2 grid: seat grids on top, party lists below, available | selected */
 .parties {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   max-width: 660px;
-  margin: 0 auto;
+  margin: 2em auto;
+  border: 1px solid #eee;
+  background: #fff;
 }
 
-/* The seat grid lives inside each party panel */
+.parties > :nth-child(even) {
+  border-left: 1px solid #eee; /* the single vertical divider */
+}
+
+.party-cell {
+  min-width: 0;
+  padding: 0 2em 2em;
+}
+
 .seats-group {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   justify-content: flex-start;
-  width: 100%;
-  padding: 0 0 1.5em;
+  padding: 2em 2em 1.5em;
 }
 
 .seat {
@@ -85,41 +97,6 @@ svg {
   animation: none;
 }
 
-.party-group {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #eee;
-  box-sizing: border-box;
-  padding: 2em;
-  margin: 2em 0;
-  background: #fff;
-}
-
-.party-group-list {
-  width: 100%;
-}
-
-/* Desktop: two equal, fixed-size columns that never resize with the content */
-@media (min-width: 701px) {
-  .parties {
-    align-items: stretch;
-  }
-  .party-group {
-    flex: 0 0 50%;
-    min-width: 0;
-    /* Tall enough for the fullest state (every party + seat grid + totals), so selecting never resizes it */
-    min-height: calc((var(--party-rows) + 1) * 2.02em + 4em + 26em + 8px);
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-  .party-group + .party-group {
-    margin-left: -1px; /* collapse the shared border */
-  }
-}
-
 .party-group-empty {
   opacity: 0.2;
 }
@@ -161,11 +138,11 @@ svg {
 
 /* Line the dots up with the seat squares above, while the hover outline
    still gets breathing room on both sides */
-.party-group .party-color {
+.party-cell .party-color {
   margin-left: 0;
 }
 
-.party-group .party {
+.party-cell .party {
   width: auto;
   margin-left: -10px;
   margin-right: -10px;
@@ -260,25 +237,33 @@ svg {
   .App {
     padding: 0;
   }
+  .parties {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    border: none;
+    margin: 0 auto;
+  }
+  .parties > :nth-child(even) {
+    border-left: none;
+  }
   .seats-group {
-    padding: 0 0 1em;
+    padding: 1em 20px 0.5em;
     justify-content: center;
   }
   .seats-group-inactive {
     display: none;
   }
-  .parties {
-    flex-direction: column-reverse;
-    align-items: center;
+  .seats-group-active {
+    order: 1;
   }
-  .party-group {
-    width: calc(100% - 20px);
-    margin: 0;
-    padding: 20px 0;
-    border: none;
-    box-shadow: none;
+  .party-cell {
+    padding: 20px;
   }
-  .party-group-inactive {
+  .party-cell-active {
+    order: 2;
+  }
+  .party-cell-inactive {
+    order: 3;
     border-top: 1px solid #eee;
   }
   .party-total {
