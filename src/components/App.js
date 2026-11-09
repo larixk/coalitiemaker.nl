@@ -12,6 +12,8 @@ import times from "../util/times";
 class App extends Component {
   constructor() {
     super();
+    // Stable reference so the memoized Finder doesn't re-render on hover.
+    this.handleClickFinder = this.handleClickFinder.bind(this);
     const hashParties = window.location.hash
       ? decodeURI(window.location.hash.substr(1)).split("+")
       : [];
@@ -278,7 +280,7 @@ class App extends Component {
           </div>
         </div>
         <Finder
-          onClick={(parties) => this.handleClickFinder(parties)}
+          onClick={this.handleClickFinder}
           parties={parties}
         />
         <Footer />
