@@ -24,29 +24,20 @@ svg {
   margin: 0 auto 40px;
 }
 
-.parties,
-.seats {
+.parties {
   display: flex;
   align-items: flex-start;
   max-width: 660px;
   margin: 0 auto;
 }
 
-.seats {
-  border: 1px solid #eee;
-  padding-bottom: 1em;
-}
-
+/* The seat grid lives inside each party panel */
 .seats-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  width: 50%;
-  padding: 2em 2em;
-}
-
-.seats-group + .seats-group {
   justify-content: flex-start;
+  width: 100%;
+  padding: 0 0 1.5em;
 }
 
 .seat {
@@ -128,8 +119,8 @@ svg {
   .party-group {
     flex: 0 0 50%;
     min-width: 0;
-    /* Always as tall as the full party list, so selecting never resizes it */
-    min-height: calc((var(--party-rows) + 1) * 2.02em + 6.5em + 8px);
+    /* Tall enough for the fullest state (every party + seat grid + totals), so selecting never resizes it */
+    min-height: calc((var(--party-rows) + 1) * 2.02em + 6.5em + 26em + 8px);
     justify-content: flex-start;
     align-items: stretch;
   }
@@ -269,18 +260,8 @@ svg {
   .App {
     padding: 0;
   }
-  .seats {
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    flex-direction: column;
-  }
   .seats-group {
-    width: auto;
-    padding: .5em;
-    justify-content: center;
-  }
-  .seats-group + .seats-group {
+    padding: 0 0 1em;
     justify-content: center;
   }
   .seats-group-inactive {

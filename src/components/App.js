@@ -228,38 +228,26 @@ class App extends Component {
             uitsluiten.
           </p>
         </div>
-        <div className="seats">
-          <div className="seats-group seats-group-inactive">
-            {this.renderSeats({ parties: inactiveParties })}
-            {times(
-              activeSum -
-                (this.state.hovered &&
-                !this.state.active.includes(this.state.hovered)
-                  ? this.state.hovered.seats
-                  : 0),
-              (i) => (
-                <Seat
-                  key={"required-" + i}
-                  backgroundColor="#eee"
-                  disabled={true}
-                />
-              )
-            )}
-          </div>
-          <div className="seats-group seats-group-active">
-            {this.renderSeats({ parties: active })}
-            {times(76 - activeSum, (i) => (
-              <Seat
-                key={"required-" + (76 - activeSum - i)}
-                backgroundColor="#eee"
-                disabled={true}
-              />
-            ))}
-          </div>
-        </div>
         <div className="parties" style={{ "--party-rows": parties.length }}>
           <div className="party-group party-group-inactive">
             <h3 className="party-group-title">Beschikbaar</h3>
+            <div className="seats-group seats-group-inactive">
+              {this.renderSeats({ parties: inactiveParties })}
+              {times(
+                activeSum -
+                  (this.state.hovered &&
+                  !this.state.active.includes(this.state.hovered)
+                    ? this.state.hovered.seats
+                    : 0),
+                (i) => (
+                  <Seat
+                    key={"required-" + i}
+                    backgroundColor="#eee"
+                    disabled={true}
+                  />
+                )
+              )}
+            </div>
             {this.renderPartyList({
               parties: inactiveParties,
               isActive: false,
@@ -267,6 +255,16 @@ class App extends Component {
           </div>
           <div className="party-group party-group-active">
             <h3 className="party-group-title">Geselecteerd</h3>
+            <div className="seats-group seats-group-active">
+              {this.renderSeats({ parties: active })}
+              {times(76 - activeSum, (i) => (
+                <Seat
+                  key={"required-" + (76 - activeSum - i)}
+                  backgroundColor="#eee"
+                  disabled={true}
+                />
+              ))}
+            </div>
             {active.length ? (
               <div>
                 {this.renderPartyList({
